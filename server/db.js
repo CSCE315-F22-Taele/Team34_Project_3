@@ -1,9 +1,8 @@
 /* eslint-disable import/no-import-module-exports */
-import Credentials from './credentials';
+const Pool = require('pg');
+const Credentials = require('./credentials');
 
-const Pool = require('pg').pool;
-
-const pool = new Pool({
+const pool = new Pool.Pool({
   user: Credentials.user,
   password: Credentials.password,
   host: Credentials.host,
