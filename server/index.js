@@ -9,5 +9,5 @@ app.use(express.json());
 const PORT = 5001;
 
 app.listen(PORT, () => {
-  console.log(`Server has started on port ${PORT}`);
+    console.log('Server has started on port ', PORT);
 });
