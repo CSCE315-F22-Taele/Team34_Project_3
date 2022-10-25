@@ -2,7 +2,9 @@ import React from "react";
 import chicfila from '../assets/chick-fil-a-logo-vector.png';
 import Image from 'next/image'
 
+
 import styled from "styled-components";
+import { Router } from "next/router";
 
 const Screen = styled.div`
   position: relative;
@@ -65,15 +67,15 @@ const Balls = styled.div`
 
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = React.useState(false);
+  const [finishedLoading, setLoading] = React.useState(false);
 
   React.useEffect(() =>{
     setTimeout(() => setLoading(true), 5000);
-   })
+   }, Router.asPath)
 
   return (
     <>
-      {loading ? (
+      {finishedLoading ? (
         <React.Fragment>
           <Component {...pageProps} />
         </React.Fragment>
