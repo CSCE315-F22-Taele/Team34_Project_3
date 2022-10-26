@@ -1,5 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+  const resObj = {};
+  for (var a = 1; a < 10; a++)
+    resObj[a] = a;
+  res.status(200).json(resObj);
 }

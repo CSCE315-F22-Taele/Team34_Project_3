@@ -1,0 +1,48 @@
+.topnav {
+    overflow: hidden;
+    margin-top: 15px;
+    padding: 5px 30px 5px 5px;
+  }
+  
+  .topnav .logo {
+    display: inline-block;
+    float: left;
+  }
+
+  .topnav .accessibility {
+    float: right;
+    background-color: white;
+    color: #e60e33;
+    outline-color: #e60e33;
+    outline-style: solid; 
+  }
+
+  .topnav .accessibility:hover {
+    background-color: #e60e33;
+    color: white;
+  }
+
+  .topnav a {
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 25px;
+    background-color: #e60e33;
+    display: inline-block;
+    cursor: pointer;
+    height: 75px;
+    border-radius: 100px;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 27px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: 0.3s ease;
+  }
+  
+  .topnav a:hover {
+    background-color: white;
+    color: #e60e33;
+    outline-color: #e60e33;
+    outline-style: solid;
+  }
