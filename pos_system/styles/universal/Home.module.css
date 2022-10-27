@@ -4,15 +4,39 @@
     overflow: hidden;
 }
 
-.sectionleft, .sectionright {
+.sectionleft {
     display: inline-block;
     width: 50%; 
     height: 100%;
 }
 
 .sectionright {
+    display: inline-block;
+    width: 50%; 
+    height: 100%;
     background-color: #e60e33;
+
 }
+
+.sectionright .pics {
+    /* float: left; */
+    position: absolute;
+    margin-top: 100px;
+    margin-left:75px;
+ 
+
+
+}
+
+
+
+/* .sectionright .coke {
+    float: left;
+    margin-bottom: 20px;
+    margin-right:75px;
+
+
+} */
 
 .textcontainer {
     text-align: center; 

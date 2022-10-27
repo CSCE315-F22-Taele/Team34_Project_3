@@ -10,6 +10,7 @@ function placeCart(isCustomer) {
 const NavBar = (props) => {
     return (
         <div className={styles.topnav}>
+            
             <div className={styles.logo}  href="/"><Image src={chickfila} width={170} height={100} /></div>
             {props.navItems.map(navItem => {
                 return <a href={navItem.route}>{navItem.navItemName}</a>
@@ -17,6 +18,7 @@ const NavBar = (props) => {
             {placeCart(props.isCustomer)}
             <a className={styles.accessibility}>Color</a>
             <a className={styles.accessibility}>Voice</a>
+            
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import cfaHomeSand from '../assets/cfaHomeSand.png';
+import cfaHomeCoke from '../assets/cfaHomeCoke.png';
 import styles from '../styles/universal/Home.module.css';
 import NavBar from '../components/universal/NavBar'
 
@@ -20,7 +22,12 @@ export default function Home() {
             <a className={styles.orderbutton}>Order Now!</a>
           </div>
         </div>
-        <div className={styles.sectionright}></div>
+        <div className={styles.sectionright}>
+          <div className={styles.pics} href="/">
+            <Image src={cfaHomeSand} width={300} height={400} className={styles.sand}/>
+            <Image src={cfaHomeCoke} width={330} height={500} className={styles.coke}/>
+          </div>
+        </div>
       </div>
     </div>
   );
