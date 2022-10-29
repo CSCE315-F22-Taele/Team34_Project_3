@@ -18,7 +18,7 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.sectionleft}>
           <div className={styles.textcontainer}>
-            <h1 style={{ fontSize: '80px', fontFamily: 'serif' }}>Order our World Famous Chick-Fil-A Sandwich!</h1>
+            <h1 style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</h1>
             <a className={styles.orderbutton}>Order Now!</a>
           </div>
         </div>
