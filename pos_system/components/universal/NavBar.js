@@ -2,6 +2,8 @@ import styles from '../../styles/universal/Navbar.module.css';
 import chickfila from '../../assets/navbar-loog.png';
 import Image from 'next/image';
 
+import Link from 'next/link';
+
 function placeCart(isCustomer) {
     if (isCustomer)
         return <a className={styles.accessibility}>Cart logo</a>
@@ -18,7 +20,8 @@ const NavBar = (props) => {
             
             <div className={styles.logo}  href="/"><Image src={chickfila} width={170} height={100} /></div>
             {props.navItems.map(navItem => {
-                return <a href={navItem.route}>{navItem.navItemName}</a>
+                // return <a href={navItem.route}>{navItem.navItemName}</a>
+                return <Link replace href={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(props.isCustomer)}
             {placeLoginButton(false)}
