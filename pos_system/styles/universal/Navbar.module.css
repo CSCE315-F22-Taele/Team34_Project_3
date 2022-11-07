@@ -25,7 +25,8 @@
   }
 
   .topnav a {
-    width: 10%;
+    min-width: 10%;
+    max-width: fit-content;
     margin-top: 10px;
     margin-left: 25px;
     background-color: #e60e33;

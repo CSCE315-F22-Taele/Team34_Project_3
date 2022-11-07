@@ -14,7 +14,7 @@ const navItems = [
 export default function Home() {
   return (
     <div>
-      <NavBar navItems={navItems} isCustomer={false} />
+      <NavBar navItems={navItems} />
       <div className={styles.container}>
         <div className={styles.sectionleft}>
           <div className={styles.textcontainer}>
