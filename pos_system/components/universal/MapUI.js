@@ -32,33 +32,32 @@ function MyMap() {
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyC4LMdEMeuSYC-xjV2W3EXEDa-7nUi6JpU',
     libraries,
-  })
+  });
 
-  const [map, setMap] = React.useState(null)
+  const [map, setMap] = React.useState(null);
+  const mapRef = React.useRef();
 
-  const onLoad = React.useCallback(function callback(map) {
+  const onLoad = React.useCallback((map) => {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
-    setMap(map)
-  }, [])
+    mapRef.current = map;
+  }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
-  }, [])
+  }, []);
+
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
+    mapRef.current.setZoom(20);
   }, []);
 
   return isLoaded ? (
     <div>
-      <Search panTo={panTo} />
+      <Search panTo={panTo}/>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={5}
+        zoom={16}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={options}
@@ -69,28 +68,31 @@ function MyMap() {
     </div>
   ) : <></>
 }
-function Search(){
+function Search({panTo}){
   const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
     requestOptions:{
       location: {
         lat: () => 30.62113219621122,
         lng: () => -96.34038303246915,
       },
-      radius: 200 * 1000
+      radius: 20 * 1000
     }
-  })
+  });
 
   return (
+    <div className="search">
     <Combobox onSelect = {async (address) => {
+      setValue(address, false);
+      clearSuggestions()
       try {
-        const result = await getGeocode({address});
+        const results = await getGeocode({address});
         const {lat, lng} = await getLatLng(results[0]);
-        console.log(lat, lng);
+        console.log({lat, lng});
+        panTo({lat, lng});
       }
       catch(error){
         console.log("error")
       }
-      //console.log(address);
       }}>
       <ComboboxInput value = {value}
         onChange ={(e) => {setValue(e.target.value);}}
@@ -101,6 +103,7 @@ function Search(){
         {status === "OK" && data.map(({id, description}) => <ComboboxOption key = {id} value = {description}/>)}
       </ComboboxPopover>
     </Combobox>
+    </div>
   )
 }
 
