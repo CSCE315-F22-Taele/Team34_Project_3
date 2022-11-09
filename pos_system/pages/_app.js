@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   const [finishedLoading, setLoading] = React.useState(false);
 
   React.useEffect(() =>{
-    setTimeout(() => setLoading(true), 3000);
+    setTimeout(() => setLoading(true), 0);
    }, Router.asPath)
 
   return (
