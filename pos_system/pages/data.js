@@ -1,5 +1,7 @@
 import coke from "../assets/cfaHomeCoke.png";
 import sandwich from "../assets/cfaHomeSand.png";
+import sandwich1 from "../assets/cfapics/CFASandwich.png";
+import sandwich2 from "../assets/cfapics/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.png";
 
 const items  = [
     {
@@ -7,28 +9,28 @@ const items  = [
       "item_name": "CFA Chicken",
       "item_price": "4.29",
       "item_type": "Entree",
-      "image": sandwich
+      "image": sandwich2
     }, 
     {
         "item_id": 1,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich
+        "image": sandwich1
       },
       {
         "item_id": 1,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich
+        "image": sandwich2
       },
       {
         "item_id": 1,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich
+        "image": sandwich1
       }, 
       
       {
@@ -36,7 +38,7 @@ const items  = [
         "item_name": "CFA Spicy Deluxe",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich
+        "image": sandwich2
       }, 
       {
         "item_id": 1,

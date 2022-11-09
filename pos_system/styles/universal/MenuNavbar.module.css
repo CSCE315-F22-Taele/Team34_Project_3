@@ -1,5 +1,6 @@
 .topnav {
   overflow: hidden;
+  position: sticky;
   margin-top: 5px;
   padding: 3px 29px 3px 3px;
   /* border-bottom : 3px s #000; */

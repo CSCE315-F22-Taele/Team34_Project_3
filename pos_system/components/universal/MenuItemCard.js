@@ -7,7 +7,7 @@ const MenuItemCard = ({item}) => {
     <div className={styles.menuitemcard}>
       
     <div className={styles.img}>
-        <Image src={item.image}  height={300} width={220}/>
+        <Image src={item.image}  height={500} width={350}/>
     </div>
 
       
