@@ -10,7 +10,6 @@ export function getItembyType(items, setItems, type) {
 const MenuNavBar = (props) => {
     return (
         <div className={styles.topnav}>
-        
             <div class="topnav-centered">
                 <button class="active" onClick={() => getItembyType(props.myitems, props.setItems, "Entree")}>Entrees</button>
                 <button class="active" onClick={() => getItembyType(props.myitems, props.setItems, "Drinks")}>Drinks</button>

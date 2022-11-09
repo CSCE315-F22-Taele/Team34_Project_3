@@ -14,19 +14,13 @@ const navItems = [
 export default function Home(props) {
   const [myitems, setItems ] = useState(items.filter((item) => item.item_type === "Entree"));
   return (
-    <div>
+    <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%'}}>
       <NavBar navItems={navItems} isCustomer={false} />
       <MenuNavBar menuNavBar myitems ={items} setItems = {setItems} ></MenuNavBar> 
       
-      <div className = {menu.container}> 
-        <div className= {menu.cards}>
-          {myitems.map((item) => {return <div className = {menu.individual}> <MenuItemCard item = {item}></MenuItemCard> </div>})}
-        </div>
-          
+      <div className = {menu.gridcontainer}> 
+          {myitems.map((item) => {return <MenuItemCard className = {menu.griditem} item = {item}></MenuItemCard>})}
       </div>
-      
-
-      
     </div>
   );
 };

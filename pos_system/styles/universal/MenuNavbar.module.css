@@ -7,12 +7,12 @@
 
 }
 
-
 .topnav {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 115px;
   background:white;
+  text-align: center;
 }
 .fixed {
   position:fixed;
@@ -43,7 +43,6 @@
   text-decoration: none;
   font-size: 25px;
   transition: 0.3s ease;
-  
 }
 
 .topnav button:hover {

@@ -11,7 +11,7 @@ const MenuItemCard = ({item}) => {
     </div>
 
       
-      <h4 class = "menu_itemname"> {item.item_id} </h4>
+      <h4 class = "menu_itemname"> {item.item_name} </h4>
       <p>{item.item_price} </p>
       <p>{item.item_type} </p>
       <button className={styles.button}>Order Now</button>
