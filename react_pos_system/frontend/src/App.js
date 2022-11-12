@@ -9,6 +9,8 @@ import Home from './Home';
 import MenuView from './customerpages/MenuView';
 import Login from './Login';
 import ServerHome from './serverpages/ServerHome';
+import ManagerHome from './managerpages/ManagerHome';
+import Forbidden from './Forbidden';
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/menu" element={<MenuView />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/server" element={<ServerHome />}></Route>
+          <Route path="/manager" element={<ManagerHome />}></Route>
+          <Route path="/forbidden" element={<Forbidden />}></Route>
       </Routes>
     </BrowserRouter>
     </div>

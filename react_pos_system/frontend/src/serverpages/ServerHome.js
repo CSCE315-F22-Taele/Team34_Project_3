@@ -9,10 +9,13 @@ const ServerHome = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (sessionStorage.getItem("role") === null || sessionStorage.getItem("role") === "logged_out") {
-            navigate("/");
+        console.log("SERVER HOME SEES ROLE: ", sessionStorage.getItem("role"));
+        if (sessionStorage.getItem("role") !== "server" && sessionStorage.getItem("role") !== "manager") {
+            navigate("/forbidden");
+            console.log("SERVER IS CHANGING ROLE TO LOGGED OUT")
+            sessionStorage.setItem("role", "logged_out");
         }
-    })
+    });
 
     return ( 
         <>

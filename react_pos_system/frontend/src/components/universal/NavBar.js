@@ -18,7 +18,7 @@ function placeLoginButton(isLogged) {
     if (!isLogged)
         return <a href="/login" className={"elem accessibility"}>Login</a>
     else 
-        return <a href="/" className={"elem accessibility"}><button onClick={() => logOut()}>Logout</button></a>
+        return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
 }
 
 const NavBar = (props) => {
@@ -30,8 +30,7 @@ const NavBar = (props) => {
             sessionStorage.setItem("role", "logged_out");
         }
         setLogged(sessionStorage.getItem("role") === "manager" || sessionStorage.getItem("role") === "server");
-        console.log(sessionStorage.getItem("role"));
-        console.log("SET2");
+        console.log("NAVBAR SEES ROLE: ", sessionStorage.getItem("role"));
     }, [])
 
     return (

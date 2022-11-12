@@ -5,8 +5,7 @@ import NavBar from '../components/universal/NavBar';
 import items from './data'
 import React, { useState } from "react";
 
-const navItems = [
-    { navItemName: "Home", route: "/" },
+const navItems = [ 
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" },
 ];

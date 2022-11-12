@@ -22,9 +22,9 @@ const Login = () => {
                 <div className='form-container' style={{ width: '50%', position: "absolute", top: "12%", left: "50%", transform: "translate(-50%, 050%)" }}>
                     <GoogleLogin
                         onSuccess={credentialResponse => {
+                            sessionStorage.setItem("role", "manager");
                             navigate('/server');
                             // TODO: make sure to change based on who logged in
-                            sessionStorage.setItem("role", "manager");
                             console.log(credentialResponse);
                         }}
                         onError={() => {
