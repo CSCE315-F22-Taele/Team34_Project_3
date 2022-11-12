@@ -7,6 +7,8 @@ import './styles/homepage.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import MenuView from './customerpages/MenuView';
+import Login from './Login';
+import ServerHome from './serverpages/ServerHome';
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
       <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/menu" element={<MenuView />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/server" element={<ServerHome />}></Route>
       </Routes>
     </BrowserRouter>
     </div>

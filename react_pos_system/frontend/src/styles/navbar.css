@@ -1,52 +1,56 @@
 .topnav {
-    overflow: hidden;
-    padding: 5px 30px 5px 5px;
-    /* border-bottom : 3px solid #000; */
-    box-shadow: 0 4px 2px -1px gray;
-  }
+  overflow: hidden;
+  padding: 10px 30px 20px 5px;
+  /* border-bottom : 3px solid #000; */
+  box-shadow: 0 4px 2px -1px gray;
+}
 
-  .topnav .logo {
-    display: inline-block;
-    float: left;
-    width: 10%;
-    height: 10%;
-  }
+.topnav .logo {
+  display: inline-block;
+  float: left;
+  width: 10%;
+  height: 10%;
+}
 
-  
-  .topnav .elem {
-    width: 10%;
-    margin-top: 10px;
-    margin-left: 25px;
-    background-color: #e60e33;
-    display: inline-block;
-    cursor: pointer;
-    height: fit-content;
-    border-radius: 100px;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 27px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    transition: 0.3s ease;
-  }
-  
-  .topnav .elem:hover {
-    background-color: white;
-    color: #e60e33;
-    outline-color: #e60e33;
-    outline-style: solid;
-    }
 
-    .topnav .accessibility {
-      float: right;
-      background-color: white;
-      color: #e60e33;
-      outline-color: #e60e33;
-      outline-style: solid; 
-    }
-  
-    .topnav .accessibility:hover {
-      background-color: #e60e33;
-      color: white;
-    }
+.topnav .elem {
+  width: 10%;
+  margin-top: 10px;
+  margin-left: 25px;
+  background-color: #e60e33;
+  display: inline-block;
+  cursor: pointer;
+  height: fit-content;
+  border-radius: 100px;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 27px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.topnav .elem:hover {
+  background-color: white;
+  color: #e60e33;
+  outline-color: #e60e33;
+  outline-style: solid;
+}
+
+.topnav .accessibility {
+  float: right;
+  background-color: white;
+  color: #e60e33;
+  outline-color: #e60e33;
+  outline-style: solid;
+}
+
+.topnav .accessibility:hover {
+  background-color: #e60e33;
+  color: white;
+}
+
+.topnav .accessibility button {
+  all: unset;
+}

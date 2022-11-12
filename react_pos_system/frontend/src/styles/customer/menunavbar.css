@@ -4,7 +4,8 @@
     margin-top: 5px;
     /* padding: 3px 29px 3px 3px; */
     /* border-bottom : 3px s #000; */
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2)
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    margin-bottom: 50px;
 }
 
 .menutopnav {
