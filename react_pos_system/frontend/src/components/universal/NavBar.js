@@ -1,12 +1,12 @@
 import '../../styles/navbar.css';
 import chickfila from '../../assets/navbar-loog.png';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { googleLogout } from '@react-oauth/google';
 
-function placeCart(isCustomer) {
-    if (isCustomer)
-        return <a className={"elem accessibility"}>Cart logo</a>
+function placeCart() {
+    if (sessionStorage.getItem("role") === "logged_out")
+        return <a className={"elem accessibility"}><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
 }
 
 function logOut() {
@@ -23,6 +23,7 @@ function placeLoginButton(isLogged) {
 
 const NavBar = (props) => {
     const [isLogged, setLogged] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (sessionStorage.getItem("role") === null) {
@@ -36,15 +37,15 @@ const NavBar = (props) => {
     return (
         <div className={"topnav"}>
 
-            <div><img href="/" className={"logo"} src={chickfila} /></div>
+            <div><img onClick={() => navigate("/")} className={"logo"} src={chickfila} /></div>
             {props.navItems.map(navItem => {
                 return <a className={"elem"} href={navItem.route}>{navItem.navItemName}</a>
                 // return <Link replace href={navItem.route}>{navItem.navItemName}</Link>
             })}
-            {placeCart(props.isCustomer)}
+            {placeCart(true)}
             {placeLoginButton(isLogged)}
             <a className={"elem accessibility"}>Color</a>
-            <a className={"elem accessibility"}>Voice</a>
+            {/* <a className={"elem accessibility"}>Voice</a> */}
         </div>
     );
 };

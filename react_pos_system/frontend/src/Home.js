@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 
 const navItems = [
-    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" }
 ];
