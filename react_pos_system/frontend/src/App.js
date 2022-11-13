@@ -11,6 +11,8 @@ import CartView from './customerpages/CartView';
 import Login from './Login';
 import ServerHome from './serverpages/ServerHome';
 import React, { useState } from "react";
+import ManagerHome from './managerpages/ManagerHome';
+import Forbidden from './Forbidden';
 
 export default function App() {
   
@@ -87,7 +89,8 @@ export default function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/server" element={<ServerHome />}></Route>
           <Route path="/cart" element = {<CartView cart = {cart} setCart= {setCart} incrementCartItem = {incrementCartItem} decrementCartItem = {decrementCartItem} sendOrder = {sendOrder} />}></Route>
-
+          <Route path="/manager" element={<ManagerHome />}></Route>
+          <Route path="/forbidden" element={<Forbidden />}></Route>
       </Routes>
     </BrowserRouter>
     </div>

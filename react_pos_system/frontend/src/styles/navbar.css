@@ -1,3 +1,11 @@
+.topnav button {
+  all: unset;
+}
+
+.topnav a {
+  all: unset;
+}
+
 .topnav {
   overflow: hidden;
   padding: 10px 30px 20px 5px;
@@ -49,8 +57,4 @@
 .topnav .accessibility:hover {
   background-color: #e60e33;
   color: white;
-}
-
-.topnav .accessibility button {
-  all: unset;
 }

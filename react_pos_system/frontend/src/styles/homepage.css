@@ -55,3 +55,14 @@
     outline-color: #e60e33;
     outline-style: solid;
   }
+
+  .fade-in-text {
+    font-family: Arial;
+    font-size: 150px;
+    animation: fadeIn 1.75s;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }

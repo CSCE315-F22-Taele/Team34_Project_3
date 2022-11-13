@@ -1,8 +1,8 @@
 import NavBar from "./components/universal/NavBar";
 import cfaHomeCoke from '../src/assets/cfaHomeCoke.png';
 import cfaHomeSand from '../src/assets/cfaHomeSand.png';
-import { useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
+import sandwich1 from "./assets/cfapics/CFASandwich.png";
+import sandwich2 from "./assets/cfapics/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.png";
 
 const navItems = [
     { navItemName: "Menu", route: "/menu" },
@@ -16,7 +16,7 @@ const Home = () => {
             <NavBar navItems={navItems} isCustomer={false} />
             <div className={"homecontainer"}>
                 <div className={"sectionleft"}>
-                    <div className={"textcontainer"}>
+                    <div className={"textcontainer fade-in-text"}>
                         <p style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</p>
                         <a className={"orderbutton"}>Order Now!</a>
                     </div>
