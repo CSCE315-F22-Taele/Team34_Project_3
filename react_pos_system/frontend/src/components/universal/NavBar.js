@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { googleLogout } from '@react-oauth/google';
 
-function placeCart() {
-    if (sessionStorage.getItem("role") === "logged_out")
-        return <a className={"elem accessibility"}><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
-}
+
 
 function logOut() {
     googleLogout();
@@ -22,8 +19,16 @@ function placeLoginButton(isLogged) {
 }
 
 const NavBar = (props) => {
-    const [isLogged, setLogged] = useState(false);
     const navigate = useNavigate();
+    function placeCart() {
+        
+        if (sessionStorage.getItem("role") === "logged_out")
+            // return <a href="/cart" className={"elem accessibility"}><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+            return <button className={"elem accessibility"} onClick = {() => navigate("/cart")}><i class="fa-solid fa-cart-shopping fa-2xl"></i></button>
+    
+    }
+    const [isLogged, setLogged] = useState(false);
+    
 
     useEffect(() => {
         if (sessionStorage.getItem("role") === null) {
