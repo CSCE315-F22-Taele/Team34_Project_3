@@ -1,6 +1,6 @@
 import '../../styles/navbar.css';
 import chickfila from '../../assets/navbar-loog.png';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { googleLogout } from '@react-oauth/google';
 
@@ -21,12 +21,10 @@ function placeLoginButton(isLogged) {
 const NavBar = (props) => {
     const navigate = useNavigate();
     function placeCart() {
-        
         if (sessionStorage.getItem("role") === "logged_out")
-            // return <a href="/cart" className={"elem accessibility"}><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
             return <button className={"elem accessibility"} onClick = {() => navigate("/cart")}><i class="fa-solid fa-cart-shopping fa-2xl"></i></button>
-    
     }
+
     const [isLogged, setLogged] = useState(false);
     
 
@@ -43,8 +41,7 @@ const NavBar = (props) => {
 
             <div><img onClick={() => navigate("/")} className={"logo"} src={chickfila} /></div>
             {props.navItems.map(navItem => {
-                return <a className={"elem"} href={navItem.route}>{navItem.navItemName}</a>
-                // return <Link replace href={navItem.route}>{navItem.navItemName}</Link>
+                return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(true)}
             {placeLoginButton(isLogged)}
