@@ -1,7 +1,7 @@
 import '../../styles/navbar.css';
 import chickfila from '../../assets/navbar-loog.png';
 import { Link } from "react-router-dom";
-
+import toggleTheme from '../../App';
 function placeCart(isCustomer) {
     if (isCustomer)
         return <a className={"elem accessibility"}>Cart logo</a>
@@ -23,7 +23,7 @@ const NavBar = (props) => {
             })}
             {placeCart(props.isCustomer)}
             {placeLoginButton(false)}
-            <a className={"elem accessibility"}>Color</a>
+            <Link className={"elem accessibility"} to="/" component={toggleTheme}>Color</Link>
             <a className={"elem accessibility"}>Voice</a>
         </div>
     );

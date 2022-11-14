@@ -1,3 +1,9 @@
+#normal {
+    background-color: white;
+}
+#blind {
+    background-color: white;
+}
 .container {
     width: 100%;
     height: 89vh;
@@ -14,7 +20,13 @@
     display: inline-block;
     width: 50%; 
     height: 100%;
+    
+}
+#normal .sectionright{
     background-color: #e60e33;
+}
+#blind .sectionright{
+    background-color: orange;
 }
 
 .sectionright .pics {
@@ -35,7 +47,6 @@
     width: 20%;
     margin-top: 10px;
     margin-left: 25px;
-    background-color: #e60e33;
     display: inline-block;
     cursor: pointer;
     height: fit-content;
@@ -47,10 +58,23 @@
     font-size: 20px;
     transition: 0.3s;
 }
+#normal .orderbutton{
+    background-color: #e60e33;
+}
+#blind .orderbutton{
+    background-color: orange;
+}
 
-.orderbutton:hover {
-    background-color: white;
-    color: #e60e33;
+#normal .orderbutton:hover{
     outline-color: #e60e33;
+    color: #e60e33;
+    background-color: white;
     outline-style: solid;
-  }
+
+}
+#blind .orderbutton:hover{
+    outline-color: orange;
+    color: orange;
+    background-color: white;
+    outline-style: solid;
+}

@@ -7,10 +7,19 @@ import './styles/homepage.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import MenuView from './customerpages/MenuView';
+import { createContext, useState } from 'react';
+import ReactSwitch from 'react-switch';
+export const ThemeContext = createContext(null);
 
 export default function App() {
+  const [theme, setTheme] = useState("normal");
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "normal" ? "blind" : "normal"));
+  };
   return (
-    <div>
+    <ThemeContext.Provider value = {{theme, toggleTheme}}>
+    <div id={theme}>
+    {/* <ReactSwitch onChange={toggleTheme} checked={theme === "normal"} /> */}
       <BrowserRouter>
       <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -18,5 +27,7 @@ export default function App() {
       </Routes>
     </BrowserRouter>
     </div>
+    </ThemeContext.Provider>
   );
+
 };

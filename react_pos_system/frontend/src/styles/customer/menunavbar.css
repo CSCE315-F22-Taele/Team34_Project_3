@@ -34,19 +34,29 @@
     display: inline-block;
     cursor: pointer;
     height: 75px;
-    color: #e60e33;
     text-align: center;
     padding: 18px 10px;
     text-decoration: none;
     font-size: 35px;
     transition: 0.3s ease;
 }
+#normal .menutopnav button {
+    color: #e60e33;
+}
+#blind .menutopnav button {
+    color: orange;
+}
 
 .menutopnav button:hover {
     background-color: white;
-    color: #e60e33;
     text-decoration: underline;
-  }
+}
+#normal .menutopnav button:hover {
+    color: #e60e33;
+}
+#blind .menutopnav button:hover {
+    color: orange;
+}
 
 .menutopnav {
     overflow: hidden;
@@ -67,7 +77,6 @@
     width: 10%;
     margin-top: 10px;
     margin-left: 25px;
-    background-color: #e60e33;
     display: inline-block;
     cursor: pointer;
     height: fit-content;
@@ -80,10 +89,22 @@
     font-size: 20px;
     transition: 0.3s ease;
 }
+#normal .menutopnav a {
+    background-color: #e60e33;
+}
+#blind .menutopnav a {
+    background-color: orange;
+}
 
-.menutopnav a:hover {
+#normal .menutopnav a:hover {
     background-color: white;
     color: #e60e33;
     outline-color: #e60e33;
+    outline-style: solid;
+}
+#normal .menutopnav a:hover {
+    background-color: white;
+    color: orange;
+    outline-color: orange;
     outline-style: solid;
 }
