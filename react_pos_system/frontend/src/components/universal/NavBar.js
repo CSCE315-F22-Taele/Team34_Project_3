@@ -33,7 +33,6 @@ const NavBar = (props) => {
             sessionStorage.setItem("role", "logged_out");
         }
         setLogged(sessionStorage.getItem("role") === "manager" || sessionStorage.getItem("role") === "server");
-        console.log("NAVBAR SEES ROLE: ", sessionStorage.getItem("role"));
     }, [])
 
     return (

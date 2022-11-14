@@ -3,7 +3,6 @@ import React, {useState, useEffect} from "react";
 import CartItemCard from '../components/customer/CartItemCard';
 
 const navItems = [
-    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" },
 ];
