@@ -43,7 +43,7 @@ const NavBar = (props) => {
             })}
             {placeCart(true)}
             {placeLoginButton(isLogged)}
-            <a className={"elem accessibility"}>Color</a>
+            <button className={"elem accessibility"}>Color</button>
             {/* <a className={"elem accessibility"}>Voice</a> */}
         </div>
     );
