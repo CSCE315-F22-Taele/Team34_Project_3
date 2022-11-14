@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
         <>
-            <NavBar navItems={navItems} isCustomer={false} />
+            <NavBar navItems={navItems} isCustomer={false} home={"/"} />
             <div className={"homecontainer"}>
                 <div className={"sectionleft"}>
                     <div className={"textcontainer fade-in-text"}>

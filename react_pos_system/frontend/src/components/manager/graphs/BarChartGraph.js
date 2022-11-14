@@ -3,37 +3,37 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 const data = [
   {
-    name: 'Page A',
+    name: 'Week 1',
     Customers: 4000,
     amt: 2400,
   },
   {
-    name: 'Page B',
+    name: 'Week 2',
     Customers: 3000,
     amt: 2210,
   },
   {
-    name: 'Page C',
+    name: 'Week 3',
     Customers: 2000,
     amt: 2290,
   },
   {
-    name: 'Page D',
+    name: 'Week 4',
     Customers: 2780,
     amt: 2000,
   },
   {
-    name: 'Page E',
+    name: 'Week 5',
     Customers: 1890,
     amt: 2181,
   },
   {
-    name: 'Page F',
+    name: 'Week 6',
     Customers: 2390,
     amt: 2500,
   },
   {
-    name: 'Page G',
+    name: 'Week 7',
     Customers: 3490,
     amt: 2100,
   },

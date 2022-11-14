@@ -11,8 +11,8 @@ import CartView from './customerpages/CartView';
 import Login from './Login';
 import ServerHome from './serverpages/ServerHome';
 import React, { useState } from "react";
-import ManagerHome from './managerpages/ManagerHome';
 import Forbidden from './Forbidden';
+import ManagerLayout from './managerpages/ManagerLayout';
 
 export default function App() {
   
@@ -75,8 +75,6 @@ export default function App() {
     console.log("Sending Order");
     console.log(order_price);
     setCart(cart);
-    
-
   }
 
   
@@ -89,8 +87,12 @@ export default function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/server" element={<ServerHome />}></Route>
           <Route path="/cart" element = {<CartView cart = {cart} setCart= {setCart} incrementCartItem = {incrementCartItem} decrementCartItem = {decrementCartItem} sendOrder = {sendOrder} />}></Route>
-          <Route path="/manager" element={<ManagerHome />}></Route>
+          <Route path="/manager" element={<ManagerLayout />}></Route>
           <Route path="/forbidden" element={<Forbidden />}></Route>
+          <Route path="/items" element={<ManagerLayout />}></Route>
+          <Route path="/ingredients" element={<ManagerLayout />}></Route>
+          <Route path="/employees" element={<ManagerLayout />}></Route>
+          <Route path="/orders" element={<ManagerLayout />}></Route>
       </Routes>
     </BrowserRouter>
     </div>

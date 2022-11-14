@@ -1,36 +1,37 @@
+import NavBar from "../components/universal/NavBar";
 import { useState, useEffect } from "react";
-import ViewItemRow from "../components/manager/ViewItemRow";
+import ViewIngredientsRow from "../components/manager/ViewIngredientsRow";
 
 const data = [
     {
         id: 1,
         item: 'Lettuce',
-        type: 'Entree',
-        price: 15.0,
-        month_sales: 1250
+        current_stock: 150,
+        on_hand: 16,
+        last_ordered: '2022-10-07'
     },
     {
         id: 2,
         item: 'Bread',
-        type: 'Treat',
-        price: 12.5,
-        month_sales: 125
+        current_stock: 125,
+        on_hand: 124,
+        last_ordered: '2022-11-08'
     },
     {
         id: 3,
         item: 'Tomatoes',
-        type: 'Drink',
-        price: 5.5,
-        month_sales: 250
+        current_stock: 55,
+        on_hand: 70,
+        last_ordered: '2022-09-06'
     },
 ]
 
-const ViewStock = () => {
+const ViewItems = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         setItems(data)
-    })
+    }, [])
 
     return (
         <>
@@ -40,14 +41,13 @@ const ViewStock = () => {
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Item</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Sales in last month</th>
+                            <th scope="col">Current Stock</th>
+                            <th scope="col">Last Ordered</th>
                         </tr>
                     </thead>
                     <tbody>
                         {items.map((item) => {
-                            return <ViewItemRow item={item} />
+                            return <ViewIngredientsRow item={item} />
                         })}
                     </tbody>
                 </table>
@@ -56,4 +56,4 @@ const ViewStock = () => {
     );
 }
 
-export default ViewStock;
+export default ViewItems;

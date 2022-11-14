@@ -3,37 +3,37 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 const data = [
   {
-    name: 'Page A',
+    name: 'Week 1',
     Sales: 2400,
     Orders: 2400,
   },
   {
-    name: 'Page B',
+    name: 'Week 2',
     Sales: 1398,
     Orders: 2210,
   },
   {
-    name: 'Page C',
+    name: 'Week 3',
     Sales: 9800,
     Orders: 2290,
   },
   {
-    name: 'Page D',
+    name: 'Week 4',
     Sales: 3908,
     Orders: 2000,
   },
   {
-    name: 'Page E',
+    name: 'Week 5',
     Sales: 4800,
     Orders: 2181,
   },
   {
-    name: 'Page F',
+    name: 'Week 6',
     Sales: 3800,
     Orders: 2500,
   },
   {
-    name: 'Page G',
+    name: 'Week 7',
     Sales: 4300,
     Orders: 2100,
   },
