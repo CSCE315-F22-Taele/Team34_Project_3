@@ -4,37 +4,37 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 const data = [
   {
     name: 'Page A',
-    uv: 4000,
+    Customers: 4000,
     amt: 2400,
   },
   {
     name: 'Page B',
-    uv: 3000,
+    Customers: 3000,
     amt: 2210,
   },
   {
     name: 'Page C',
-    uv: 2000,
+    Customers: 2000,
     amt: 2290,
   },
   {
     name: 'Page D',
-    uv: 2780,
+    Customers: 2780,
     amt: 2000,
   },
   {
     name: 'Page E',
-    uv: 1890,
+    Customers: 1890,
     amt: 2181,
   },
   {
     name: 'Page F',
-    uv: 2390,
+    Customers: 2390,
     amt: 2500,
   },
   {
     name: 'Page G',
-    uv: 3490,
+    Customers: 3490,
     amt: 2100,
   },
 ];
@@ -61,7 +61,7 @@ export default class BarChartGraph extends PureComponent {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="uv" fill="#82ca9d" />
+          <Bar dataKey="Customers" fill="#cf0d2e" />
         </BarChart>
       </ResponsiveContainer>
     );
