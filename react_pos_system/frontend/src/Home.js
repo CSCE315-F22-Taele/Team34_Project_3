@@ -18,7 +18,7 @@ const Home = () => {
                 <div className={"sectionleft"}>
                     <div className={"textcontainer fade-in-text"}>
                         <p style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</p>
-                        <a className={"orderbutton"}>Order Now!</a>
+                        <a className={"orderbutton"} to = "/menu">Order Now!</a>
                     </div>
                 </div>
                 <div className={"sectionright"}>
