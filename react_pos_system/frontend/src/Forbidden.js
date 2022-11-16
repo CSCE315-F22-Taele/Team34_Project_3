@@ -5,7 +5,7 @@ const navItems = [];
 const Forbidden = () => {
     return (
         <>
-            <NavBar navItems={navItems} />
+            <NavBar navItems={navItems} home={"/"} />
             <div style={{
                 position: "absolute",
                 top: "50%",

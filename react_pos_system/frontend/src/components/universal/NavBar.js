@@ -37,14 +37,13 @@ const NavBar = (props) => {
 
     return (
         <div className={"topnav"}>
-
-            <div><img onClick={() => navigate("/")} className={"logo"} src={chickfila} /></div>
+            <div><img onClick={() => navigate(props.home)} className={"logo"} src={chickfila} /></div>
             {props.navItems.map(navItem => {
                 return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(true)}
             {placeLoginButton(isLogged)}
-            <a className={"elem accessibility"}>Color</a>
+            <button className={"elem accessibility"}>Color</button>
             {/* <a className={"elem accessibility"}>Voice</a> */}
         </div>
     );

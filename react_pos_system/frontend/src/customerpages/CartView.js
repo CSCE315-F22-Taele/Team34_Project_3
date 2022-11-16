@@ -21,7 +21,7 @@ export default function CartView(props) {
 
     return (
         <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%' }}>
-            <NavBar navItems={navItems} isCustomer={false} />
+            <NavBar navItems={navItems} isCustomer={false} home={"/"} />
             <div className = "cartgrid">
             <ul>
             {props.cart.map((item) => { return <CartItemCard className = "cartItem"  item={item} cart = {props.cart} setCart = {props.setCart} incrementCartItem = {props.incrementCartItem} decrementCartItem = {props.decrementCartItem} ></CartItemCard> })}
