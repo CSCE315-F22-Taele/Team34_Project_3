@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c3be3bd0.css",
+    "main.js": "/static/js/main.3f553c83.js",
+    "static/media/CFASandwich.png": "/static/media/CFASandwich.0df13313fa3018536580.png",
+    "static/media/cfaHomeSand.png": "/static/media/cfaHomeSand.2da3a17078c6b0f940ab.png",
+    "static/media/cfaHomeCoke.png": "/static/media/cfaHomeCoke.8dd86d24deda32dcd1b5.png",
+    "static/media/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.png": "/static/media/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.ba75ee57fb9453d00dc6.png",
+    "static/media/navbar-loog.png": "/static/media/navbar-loog.ceda253489f39f46c7e0.png",
+    "index.html": "/index.html",
+    "main.c3be3bd0.css.map": "/static/css/main.c3be3bd0.css.map",
+    "main.3f553c83.js.map": "/static/js/main.3f553c83.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3be3bd0.css",
+    "static/js/main.3f553c83.js"
+  ]
+}

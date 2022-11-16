@@ -8,14 +8,14 @@ app.use(express.json());
 
 const PORT = 5001;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Started listening on PORT ${PORT}`);
 });
 
 // get all menu items route
-app.get("/allitems", async (req, res) => { 
+app.get("/allitems", async (req, res) => {
     try {
-        const getAllItemsQuery = "SELECT * FROM items;";
+        const getAllItemsQuery = "SELECT * FROM orders;";
         const allItems = await pool.query(getAllItemsQuery);
         res.status(200).json(allItems.rows);
     } catch (err) {
