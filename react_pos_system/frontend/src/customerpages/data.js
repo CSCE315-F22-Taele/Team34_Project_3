@@ -8,50 +8,64 @@ const items  = [
       "item_name": "CFA Chicken",
       "item_price": "4.29",
       "item_type": "Entree",
-      "image": sandwich2
+      "image": sandwich2,
+      "item_calories": 500, 
+      "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
     }, 
     {
-        "item_id": 1,
+        "item_id": 2,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich1
+        "image": sandwich1, 
+        "item_calories": 500, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       },
       {
-        "item_id": 1,
+        "item_id": 3,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich2
+        "image": sandwich2, 
+        "item_calories": 500, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       },
       {
-        "item_id": 1,
+        "item_id": 4,
         "item_name": "CFA Spicy",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich1
+        "image": sandwich1, 
+        "item_calories": 460, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       }, 
       
       {
-        "item_id": 1,
+        "item_id": 5,
         "item_name": "CFA Spicy Deluxe",
         "item_price": "4.29",
         "item_type": "Entree",
-        "image": sandwich2
+        "image": sandwich2, 
+        "item_calories": 120, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       }, 
       {
-        "item_id": 1,
+        "item_id": 6,
         "item_name": "Sprite",
         "item_price": "4.29",
         "item_type": "Drinks",
-        "image": coke
+        "image": coke, 
+        "item_calories": 250, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       }, 
       {
-        "item_id": 1,
+        "item_id": 7,
         "item_name": "Cookie",
         "item_price": "4.29",
         "item_type": "Treats",
-        "image": ""
+        "image": "", 
+        "item_calories": 300, 
+        "item_description" : "A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips. Also available on a multigrain bun. "
       }
 
 ]

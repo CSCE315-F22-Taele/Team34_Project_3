@@ -1,12 +1,14 @@
-#normal {
-  background-color: white;
+.topnav button {
+  all: unset;
 }
-#blind {
-  background-color: white;
+
+.topnav a {
+  all: unset;
 }
+
 .topnav {
   overflow: hidden;
-  padding: 5px 30px 5px 5px;
+  padding: 10px 30px 20px 5px;
   /* border-bottom : 3px solid #000; */
   box-shadow: 0 4px 2px -1px gray;
 }
@@ -18,10 +20,12 @@
   height: 10%;
 }
 
+
 .topnav .elem {
-  width: 10%;
+  width: 8.5%;
   margin-top: 10px;
   margin-left: 25px;
+  background-color: #e60e33;
   display: inline-block;
   cursor: pointer;
   height: fit-content;

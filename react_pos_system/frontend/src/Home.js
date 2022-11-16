@@ -1,22 +1,24 @@
 import NavBar from "./components/universal/NavBar";
 import cfaHomeCoke from '../src/assets/cfaHomeCoke.png';
 import cfaHomeSand from '../src/assets/cfaHomeSand.png';
+import sandwich1 from "./assets/cfapics/CFASandwich.png";
+import sandwich2 from "./assets/cfapics/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.png";
 
 const navItems = [
-    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" }
 ];
 
 const Home = () => {
+
     return (
         <>
-            <NavBar navItems={navItems} isCustomer={false} />
-            <div className={"container"}>
+            <NavBar navItems={navItems} isCustomer={false} home={"/"} />
+            <div className={"homecontainer"}>
                 <div className={"sectionleft"}>
-                    <div className={"textcontainer"}>
-                        <h1 style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</h1>
-                        <a className={"orderbutton"}>Order Now!</a>
+                    <div className={"textcontainer fade-in-text"}>
+                        <p style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</p>
+                        <a className={"orderbutton"} to = "/menu">Order Now!</a>
                     </div>
                 </div>
                 <div className={"sectionright"}>
