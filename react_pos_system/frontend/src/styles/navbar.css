@@ -81,3 +81,23 @@
   background-color: orange;
   color: white;
 }
+
+.topnav .elem:hover {
+  background-color: white;
+  color: #e60e33;
+  outline-color: #e60e33;
+  outline-style: solid;
+}
+
+.topnav .accessibility {
+  float: right;
+  background-color: white;
+  color: #e60e33;
+  outline-color: #e60e33;
+  outline-style: solid;
+}
+
+.topnav .accessibility:hover {
+  background-color: #e60e33;
+  color: white;
+}

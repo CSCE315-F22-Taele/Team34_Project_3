@@ -5,11 +5,6 @@ import toggleTheme from '../../App';
 import React, { useState, useEffect } from "react";
 import { googleLogout } from '@react-oauth/google';
 
-function placeCart(isCustomer) {
-    if (isCustomer)
-        return <a className={"elem accessibility"}>Cart logo</a>
-}
-
 function logOut() {
     googleLogout();
     sessionStorage.setItem("role", "logged_out");
