@@ -38,6 +38,49 @@
   font-size: 20px;
   transition: 0.3s ease;
 }
+#normal .topnav .elem {
+  background-color: #e60e33;
+}
+#blind .topnav .elem {
+  background-color: orange;
+}
+
+#normal .topnav .elem:hover {
+  color: #e60e33;
+  outline-color: #e60e33;
+  background-color: white;
+  outline-style: solid;
+}
+#blind .topnav .elem:hover {
+  color: orange;
+  outline-color: orange;
+  background-color: white;
+  outline-style: solid;
+}
+
+#normal .topnav .accessibility {
+  float: right;
+  background-color: white;
+  outline-style: solid; 
+  color: #e60e33;
+  outline-color: #e60e33;
+}
+#blind .topnav .accessibility {
+  float: right;
+  background-color: white;
+  outline-style: solid; 
+  color: orange;
+  outline-color: orange;
+}
+
+#normal .topnav .accessibility:hover {
+  background-color: #e60e33;
+  color: white;
+}
+#blind .topnav .accessibility:hover {
+  background-color: orange;
+  color: white;
+}
 
 .topnav .elem:hover {
   background-color: white;
