@@ -13,9 +13,9 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 // get all menu items route
-app.get("/allitems", async (req, res) => { 
+app.get("/allitems", async (req, res) => {
     try {
-        const getAllItemsQuery = "SELECT * FROM items;";
+        const getAllItemsQuery = "SELECT * FROM orders;";
         const allItems = await pool.query(getAllItemsQuery);
         res.status(200).json(allItems.rows);
     } catch (err) {
