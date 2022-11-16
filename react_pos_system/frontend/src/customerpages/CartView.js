@@ -46,7 +46,7 @@ export default function CartView(props) {
                     <div style={{fontFamily: 'serif', color: 'black' }}>Sub Total: ${SubTotal.toFixed(2)}</div>
                     <div style={{fontFamily: 'serif', color: 'black' }}>Total: ${TotalPrice.toFixed(2)}</div>
                 </div>
-                <button onClick = {() => props.sendOrder(props.cart, props.setCart, TotalPrice)} className = "Send_Order"> Pla Order</button>
+                <button onClick = {() => props.sendOrder(props.cart, props.setCart, TotalPrice)} className = "Send_Order"> Place Order</button>
 
                 </>
            
