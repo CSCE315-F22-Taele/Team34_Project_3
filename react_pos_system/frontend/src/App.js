@@ -19,7 +19,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value = {{theme, toggleTheme}}>
     <div id={theme}>
-    {/* <ReactSwitch onChange={toggleTheme} checked={theme === "normal"} /> */}
+    <ReactSwitch onChange={toggleTheme} checked={theme === "normal"} />
       <BrowserRouter>
       <Routes>
           <Route path="/" element={<Home />}></Route>

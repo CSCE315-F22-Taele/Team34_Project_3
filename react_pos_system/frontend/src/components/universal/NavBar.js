@@ -23,7 +23,7 @@ const NavBar = (props) => {
             })}
             {placeCart(props.isCustomer)}
             {placeLoginButton(false)}
-            <Link className={"elem accessibility"} to="/" component={toggleTheme}>Color</Link>
+            <button className={"elem accessibility"} onclick="toggleTheme()">Color</button>
             <a className={"elem accessibility"}>Voice</a>
         </div>
     );
