@@ -37,6 +37,8 @@
 }
 #blind .button {
   background-color: orange;
+  background: linear-gradient(-180deg,rgb(232, 178, 79),rgb(221, 146, 7) 49%,rgb(190, 124, 1));
+
 }
 
 #normal .button:hover {

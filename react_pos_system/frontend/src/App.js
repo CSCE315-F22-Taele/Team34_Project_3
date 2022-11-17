@@ -7,7 +7,7 @@ import './styles/homepage.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import MenuView from './customerpages/MenuView';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import CartView from './customerpages/CartView';
 import Login from './Login';
 import ServerHome from './serverpages/ServerHome';
@@ -20,9 +20,21 @@ export const ThemeContext = createContext(null);
 export default function App() {
   const [theme, setTheme] = useState("normal");
   const toggleTheme = () => {
-    setTheme((curr) => (curr === "normal" ? "blind" : "normal"))
+    setTheme((curr) => {
+      if (curr === "normal"){
+        localStorage.setItem("theme", "blind")
+        return "blind"
+      }
+      else{
+        localStorage.setItem("theme", "normal")
+        return "normal"
+      }
+    })
   };
-
+  useEffect(() => {
+    const state = localStorage.getItem("theme");
+    setTheme(state)
+  }, []);
   const [cart, setCart] = useState([]);
 
   //Add Items in cart -> MenuView -> MenuItemCard
@@ -88,7 +100,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
-      <ReactSwitch onChange={toggleTheme} checked={theme === "normal"} />
+      <ReactSwitch onChange={toggleTheme} unchecked={theme === "normal"} checked={theme==="blind"}/>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>
