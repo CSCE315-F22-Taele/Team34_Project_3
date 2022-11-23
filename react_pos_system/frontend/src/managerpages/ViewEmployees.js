@@ -1,32 +1,18 @@
 import { useState, useEffect } from "react";
 import ViewEmployeeRow from "../components/manager/ViewEmployeeRow";
 
-const data = [
-    {
-        id: 1,
-        name: 'John Doe',
-        role: 'Manager',
-        clocked_in: true,
-    },
-    {
-        id: 2,
-        name: 'Janice Jones',
-        role: 'Server',
-        clocked_in: true,
-    },
-    {
-        id: 3,
-        name: 'Johnathan Flannagan',
-        role: 'Chef',
-        clocked_in: false,
-    },
-]
+const getEmployees = async (setEmployees) => {
+    const getEmpAPI = "http://localhost:5001/allemployees";
+    await fetch(getEmpAPI)
+        .then((response) => response.json())
+        .then((data) => setEmployees(data));
+}
 
 const ViewEmployees = () => {
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        setEmployees(data)
+        getEmployees(setEmployees);
     }, [])
 
     return ( 
