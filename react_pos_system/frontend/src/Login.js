@@ -19,7 +19,7 @@ const Login = () => {
         <>
             <NavBar navItems={navItems} isCustomer={false} home={"/"} />
             <GoogleOAuthProvider clientId="243604614412-hdjn1eb24blri85d9apimi9tts2pe15u.apps.googleusercontent.com">
-                <div className='form-container' style={{ width: '50%', position: "absolute", top: "12%", left: "50%", transform: "translate(-50%, 050%)" }}>
+                <div className='form-container' style={{ width: '50%', position: "absolute", top: "12%", left: "50%", transform: "translate(-50%, 50%)" }}>
                     <GoogleLogin
                         onSuccess={credentialResponse => {
                             sessionStorage.setItem("role", "manager");

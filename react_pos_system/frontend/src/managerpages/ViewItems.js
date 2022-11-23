@@ -25,11 +25,18 @@ const data = [
     },
 ]
 
+export const getItems = async (setItems) => {
+    const getItemsAPI = "http://localhost:5001/allitems";
+    await fetch(getItemsAPI)
+        .then((response) => response.json())
+        .then((data) => setItems(data));
+}
+
 const ViewStock = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        setItems(data)
+        getItems(setItems);
     })
 
     return (

@@ -1,25 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/universal/NavBar";
-
-const navItems = [
-];
+import ReceiptPanel from "../components/server/ReceiptPanel";
+import MenuItems from "../components/server/MenuItems";
 
 const ServerHome = () => {
     const navigate = useNavigate();
+    const [cart, setCart] = useState([]);
+    const [subTotal, setSubPrice] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        console.log("SERVER HOME SEES ROLE: ", sessionStorage.getItem("role"));
         if (sessionStorage.getItem("role") !== "server" && sessionStorage.getItem("role") !== "manager") {
             navigate("/forbidden");
-            console.log("SERVER IS CHANGING ROLE TO LOGGED OUT")
             sessionStorage.setItem("role", "logged_out");
         }
     });
 
     return ( 
         <>
-            <NavBar navItems={navItems} />
+            <NavBar navItems={[]} />
+            <div className="row" style={{marginTop: '15px', marginRight: '15px', marginLeft: '15px'}}>
+                <div className="col-8">
+                    <MenuItems cart={cart} setCart={setCart} />
+                </div>
+                <div className="col">
+                    <ReceiptPanel cart={cart} setCart={setCart}setSubPrice={setSubPrice} subPrice={subTotal} setTotalPrice={setTotalPrice} totalPrice={totalPrice} />
+                </div>
+            </div>                
         </>
      );
 }

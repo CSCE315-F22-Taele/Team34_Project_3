@@ -26,11 +26,19 @@ const data = [
     },
 ]
 
+const getIngredients = async (setIngredients) => {
+    const getIngredientsAPI = "http://localhost:5001/allingredients";
+    await fetch(getIngredientsAPI)
+        .then((response) => response.json())
+        .then((data) => setIngredients(data));
+}
+
 const ViewItems = () => {
-    const [items, setItems] = useState([]);
+    const [Ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
-        setItems(data)
+        // setIngredients(data)
+        getIngredients(setIngredients);
     }, [])
 
     return (
@@ -46,7 +54,7 @@ const ViewItems = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {items.map((item) => {
+                        {Ingredients.map((item) => {
                             return <ViewIngredientsRow item={item} />
                         })}
                     </tbody>

@@ -7,11 +7,11 @@ function placeClockedIn(clocked_in) {
 const ViewEmployeeRow = ({ employee }) => {
     return (
         <tr>
-            <td><b>{employee.id}</b></td>
-            <td>{employee.name}</td>
-            <td>{employee.role}</td>
+            <td><b>{employee.emp_id}</b></td>
+            <td>{employee.emp_fname} {employee.emp_lname}</td>
+            <td>{employee.emp_role}</td>
             <td>
-                {placeClockedIn(employee.clocked_in)}
+                {placeClockedIn(employee.emp_clocked_in)}
             </td>
         </tr>
     );

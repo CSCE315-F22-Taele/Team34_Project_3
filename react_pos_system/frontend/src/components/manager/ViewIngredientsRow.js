@@ -1,29 +1,29 @@
 const ViewIngredientRow = ({ item }) => {
-    if (item.current_stock < item.on_hand) {
+    if (item.ingredients_stock < item.min_amount) {
         return (
             <tr style={{ color: "red" }} className="table-danger">
-                <td><b>{item.id}</b></td>
-                <td>{item.item}</td>
-                <td>{item.current_stock}</td>
-                <td>{item.last_ordered}</td>
+                <td><b>{item.ingredients_id}</b></td>
+                <td>{item.ingredients_name}</td>
+                <td>{item.ingredients_stock}</td>
+                {/* <td>{item.last_ordered}</td> */}
             </tr>
         )
-    } else if (item.current_stock > item.on_hand * 1.1) {
+    } else if (item.ingredients_stock > item.min_amount * 1.1) {
         return (
             <tr style={{color: "green"}} className="table-success">
-                <td><b>{item.id}</b></td>
-                <td>{item.item}</td>
-                <td>{item.current_stock}</td>
-                <td>{item.last_ordered}</td>
+                <td><b>{item.ingredients_id}</b></td>
+                <td>{item.ingredients_name}</td>
+                <td>{item.ingredients_stock}</td>
+                {/* <td>{item.last_ordered}</td> */}
             </tr>
         )
     } else {
         return (
             <tr>
-                <td><b>{item.id}</b></td>
-                <td>{item.item}</td>
-                <td>{item.current_stock}</td>
-                <td>{item.last_ordered}</td>
+                <td><b>{item.ingredients_id}</b></td>
+                <td>{item.ingredients_name}</td>
+                <td>{item.ingredients_stock}</td>
+                {/* <td>{item.last_ordered}</td> */}
             </tr>
         )
     }
