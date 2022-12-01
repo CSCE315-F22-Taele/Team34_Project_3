@@ -14,6 +14,7 @@ import ServerHome from './serverpages/ServerHome';
 import Forbidden from './Forbidden';
 import ManagerLayout from './managerpages/ManagerLayout';
 import ReactSwitch from "react-switch";
+import FindView from './customerpages/FindView';
 
 export const ThemeContext = createContext(null);
 
@@ -100,7 +101,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
-      <ReactSwitch onChange={toggleTheme} unchecked={theme === "normal"} checked={theme==="blind"}/>
+        <button className={"elem accessibility"} onClick={() => toggleTheme()}>Color</button>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -114,6 +115,7 @@ export default function App() {
             <Route path="/ingredients" element={<ManagerLayout />}></Route>
             <Route path="/employees" element={<ManagerLayout />}></Route>
             <Route path="/orders" element={<ManagerLayout />}></Route>
+            <Route path="/find" element={<FindView/>}></Route>
           </Routes>
         </BrowserRouter>
       </div>
