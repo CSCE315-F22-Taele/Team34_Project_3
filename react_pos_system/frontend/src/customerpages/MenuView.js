@@ -6,8 +6,9 @@ import items from './data'
 import React, { useState } from "react";
 
 const navItems = [ 
+    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
-    { navItemName: "Find", route: "/find" },
+    { navItemName: "Find", route: "/find" }
 ];
 
 export default function MenuView(props) {

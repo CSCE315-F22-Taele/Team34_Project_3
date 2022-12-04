@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from "./components/universal/NavBar";
 
 const navItems = [
+    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" }
 ];
