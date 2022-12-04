@@ -13,7 +13,6 @@ import Login from './Login';
 import ServerHome from './serverpages/ServerHome';
 import Forbidden from './Forbidden';
 import ManagerLayout from './managerpages/ManagerLayout';
-import ReactSwitch from "react-switch";
 import FindView from './customerpages/FindView';
 
 export const ThemeContext = createContext(null);
@@ -96,13 +95,33 @@ export default function App() {
     console.log(order_price);
     setCart(cart);
   }
-
+  var translateAdded = false;
+  const googleTranslateElementInit = () => {
+    if (!translateAdded)
+    {
+      translateAdded = true
+      new window.google.translate.TranslateElement({
+        pageLanguage: "en",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, "google_translate_element");
+    }
+  };
+  useEffect(() => {
+    var addTraslate = document.createElement("script");
+    addTraslate.setAttribute(
+      "src", "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addTraslate);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
-        <button className={"elem accessibility"} onClick={() => toggleTheme()}>Color</button>
+      <div id = "google_translate_element"/>
+      <button className={"elem accessibility"} onClick={() => toggleTheme()}>Color</button>
         <BrowserRouter>
+        
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/menu" element={<MenuView cart={cart} addToCart={addToCart} setCart={setCart} />}></Route>

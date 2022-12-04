@@ -10,8 +10,9 @@ import { useNavigate, Link } from "react-router-dom";
 
 
 const navItems = [
+    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
-    { navItemName: "Find", route: "/find" },
+    { navItemName: "Find", route: "/find" }
 ];
 
 export default function CartView(props) {

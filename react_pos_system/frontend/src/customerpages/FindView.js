@@ -2,6 +2,7 @@ import NavBar from '../components/universal/NavBar';
 import Map from '../components/universal/mapUI'
 import React from 'react'
 const navItems = [
+  { navItemName: "Home", route: "/" },
   { navItemName: "Menu", route: "/menu" },
   { navItemName: "Find", route: "/find" }
 ];

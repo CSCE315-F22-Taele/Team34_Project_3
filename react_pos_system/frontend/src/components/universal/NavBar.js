@@ -1,7 +1,7 @@
 import '../../styles/navbar.css';
 import chickfila from '../../assets/navbar-loog.png';
 import { useNavigate, Link } from "react-router-dom";
-import toggleTheme from '../../App.js';
+import App from '../../App.js';
 import React, { useState, useEffect } from "react";
 import { googleLogout } from '@react-oauth/google';
 
@@ -16,9 +16,7 @@ function placeLoginButton(isLogged) {
     else 
         return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
 }
-function color(){
-    return <button className={"elem accessibility"} onClick={toggleTheme()}>Color</button>
-}
+
 const NavBar = (props) => {
     const navigate = useNavigate();
     function placeCart() {
@@ -38,15 +36,13 @@ const NavBar = (props) => {
 
     return (
         <div className={"topnav"}>
-            <div><img onClick={() => navigate(props.home)} className={"logo"} src={chickfila} /></div>
             {props.navItems.map(navItem => {
                 return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(!isLogged)}
             {placeLoginButton(isLogged)}
-            {color()}
+            {}
             {/* <button className={"elem accessibility"} onClick={toggleTheme}>Color</button> */}
-            {/* <a className={"elem accessibility"}>Voice</a> */}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Marker, MarkerClusterer, useJsApiLoader } from '@react-google-maps/api';
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -11,14 +11,15 @@ import {
   ComboboxList,
   ComboboxOption,
 } from "@reach/combobox";
+import mapStyle from "../../styles/customer/map.css";
 const containerStyle = {
-  width: '40vw',
-  height: '100vh'
+  width: '70vw',
+  height: '65vh'
 };
 
 const center = {
-  lat: 30.62113219621122,
-  lng: -96.34038303246915,
+  lat: 30.612308755724264,
+  lng: -96.34130658312687,
 };
 const libraries = ["places"];
 const options = {
@@ -47,21 +48,21 @@ function MyMap() {
 
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(20);
+    mapRef.current.setZoom(18);
   }, []);
 
   return isLoaded ? (
-    <div>
+    <div className='map'>
       <Search panTo={panTo}/>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={16}
+        zoom={20}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={options}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+      {/* {<Marker position={center} label={{color: "white", text: "MSC CFA"}}/>} */}
         <></>
       </GoogleMap>
     </div>
@@ -74,7 +75,7 @@ function Search({panTo}){
         lat: () => 30.62113219621122,
         lng: () => -96.34038303246915,
       },
-      radius: 20 * 1000
+      radius: 10 * 1000
     }
   });
 
@@ -96,7 +97,7 @@ function Search({panTo}){
       <ComboboxInput value = {value}
         onChange ={(e) => {setValue(e.target.value);}}
         disabled = {!ready}
-        placeholder="enteranaddress"
+        placeholder="enter an address"
       />
       <ComboboxPopover>
         {status === "OK" && data.map(({id, description}) => <ComboboxOption key = {id} value = {description}/>)}
