@@ -17,7 +17,9 @@ app.get("/allitems", async (req, res) => {
     try {
         const getAllItemsQuery = "SELECT * FROM items ORDER BY item_id;";
         const allItems = await pool.query(getAllItemsQuery);
+        console.log("Getting All items! ")
         res.status(200).json(allItems.rows);
+        
     } catch (err) {
         console.error(err.message);
     }
@@ -122,8 +124,106 @@ app.post("/updatestock", async (req, res) => {
         console.error(error.message);
     }
 })
-    //add an order
-    // app.post
 
-    // get stuff, app.get
+app.post("/server_addOrder", async (req, res) => {
+    const {items ,totalPrice, customerName, employeeName} = req.body;
+    const getMaxOrderIDQuery = 'SELECT MAX(order_id) FROM orders;';
+    const newOrderID = (await (await pool.query(getMaxOrderIDQuery)).rows[0].max) + 1;
 
+    const addToOrdersQuery = `INSERT INTO orders (order_id, customer_name, total_price, employee) VALUES \
+    (${newOrderID},'${customerName}', '${totalPrice}', '${employeeName}' ) ;`;
+
+    console.log(addToOrdersQuery);
+    //Add orders Query
+    try {
+        await pool.query(addToOrdersQuery);
+        // res.status(200).json({ "Status": "Success" });
+    } catch (error) {
+        console.error(error.message);
+    }
+    // Add Items -> Order items
+    for(let i = 0; i < items.length; i++) {
+        var obj = items[i];
+
+        //Ingredients Query
+        console.log(obj);
+        for(let i = 0; i < obj.item.item_ingredients.length; i++) {
+
+            const decrementIngredientQuery = `UPDATE ingredients SET ingredients_stock = ingredients_stock - ${obj.item.item_quantities[i]} WHERE ingredients_id =  ${obj.item.item_ingredients[i]};`;
+            
+            try {
+                await pool.query(decrementIngredientQuery);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        const addToOrderQuery = `INSERT INTO order_item (order_id, item_id, item_quantity, total_price) VALUES \
+        (${newOrderID}, '${obj.item.item_id}', '${obj.quantity}', '${obj.item_total_price}')`
+
+        //Qeury Order items
+        try {
+            await pool.query(addToOrderQuery);
+            // res.status(200).json({ "Status": "Success" });
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    res.status(200).json({ "Status": "Success" });
+
+
+
+})
+
+app.post("/customer_addOrder", async (req, res) => {
+    const {items ,totalPrice, customerName, employeeName} = req.body;
+    const getMaxOrderIDQuery = 'SELECT MAX(order_id) FROM orders;';
+    const newOrderID = (await (await pool.query(getMaxOrderIDQuery)).rows[0].max) + 1;
+
+    const addToOrdersQuery = `INSERT INTO orders (order_id, customer_name, total_price, employee) VALUES \
+    (${newOrderID},'${customerName.customerName}', '${totalPrice}', '${employeeName}' ) ;`;
+
+    console.log(addToOrdersQuery);
+    //Add orders Query
+    try {
+        await pool.query(addToOrdersQuery);
+        // res.status(200).json({ "Status": "Success" });
+    } catch (error) {
+        console.error(error.message);
+    }
+    // Add Items -> Order items
+    for(let i = 0; i < items.length; i++) {
+        var obj = items[i];
+
+        //Ingredients Query
+        console.log("Customer");
+        console.log(obj);
+        for(let i = 0; i < obj.item_ingredients.length; i++) {
+
+            const decrementIngredientQuery = `UPDATE ingredients SET ingredients_stock = ingredients_stock - ${obj.item_quantities[i]} WHERE ingredients_id =  ${obj.item_ingredients[i]};`;
+            
+            try {
+                await pool.query(decrementIngredientQuery);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        const addToOrderQuery = `INSERT INTO order_item (order_id, item_id, item_quantity, total_price) VALUES \
+        (${newOrderID}, '${obj.item_id}', '${obj.quantity}', '${obj.item_total_price}')`
+
+        //Qeury Order items
+        try {
+            await pool.query(addToOrderQuery);
+            // res.status(200).json({ "Status": "Success" });
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    res.status(200).json({ "Status": "Success" });
+
+
+
+})
