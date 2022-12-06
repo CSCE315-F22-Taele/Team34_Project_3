@@ -4,10 +4,10 @@ const ViewOrderRow = ({ order }) => {
     return (
         <>
             <tr>
-                <td><b>{order.id}</b></td>
+                <td><b>{order.order_id}</b></td>
                 <td>{order.customer_name}</td>
-                <td>{order.price}</td>
-                <td>{order.date}</td>
+                <td>{order.total_price}</td>
+                <td>{order.created_at}</td>
                 <td>{order.employee}</td>
                 <td>
                     <button style={{ backgroundColor: "#e60e33", border: "none" }} type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#modal" + order.id}>
@@ -31,7 +31,7 @@ const ViewOrderRow = ({ order }) => {
                                         <th scope="col">Price</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {/* <tbody>
                                     {order.order_items.map((order_item) => {
                                         return <MoreOrderItemRow order_item={order_item} />
                                     })}
@@ -46,7 +46,7 @@ const ViewOrderRow = ({ order }) => {
                                             </b>
                                         </td>
                                     </tr>
-                                </tbody>
+                                </tbody> */}
                             </table>
                         </div>
                     </div>

@@ -1,80 +1,18 @@
 import ViewOrderRow from "../components/manager/VIewOrderRow";
 import { useState, useEffect } from "react";
 
-const data = [
-    {
-        id: 1,
-        customer_name: 'John Doe',
-        price: 25.0,
-        employee: 'Employee 1',
-        date: '2022-10-07',
-        order_items:
-            [
-                {
-                    id: 1,
-                    name: "CFA Chicken",
-                    quantity: 2,
-                    price: 15
-                },
-                {
-                    id: 2,
-                    name: "CFA Spicy",
-                    quantity: 1,
-                    price: 10
-                },
-            ]
-    },
-    {
-        id: 2,
-        customer_name: 'Montague Christoff',
-        price: 10.0,
-        employee: 'Employee 2',
-        date: '2022-11-08',
-        order_items:
-            [
-                {
-                    id: 2,
-                    name: "CFA Spicy",
-                    quantity: 1,
-                    price: 10
-                },
-            ]
-    },
-    {
-        id: 3,
-        customer_name: 'Godfrey Williamson',
-        price: 50.0,
-        employee: 'Employee 3',
-        date: '2022-09-07',
-        order_items:
-            [
-                {
-                    id: 1,
-                    name: "CFA Chicken",
-                    quantity: 2,
-                    price: 15
-                },
-                {
-                    id: 2,
-                    name: "CFA Spicy",
-                    quantity: 1,
-                    price: 10
-                },
-                {
-                    id: 12,
-                    name: "Coke",
-                    quantity: 3,
-                    price: 25
-                },
-            ]
-    },
-]
+export const getOrders = async (setItems) => {
+    const getItemsAPI = "http://localhost:5001/allorders";
+    await fetch(getItemsAPI)
+        .then((response) => response.json())
+        .then((data) => setItems(data));
+}
 
 const ViewOrders = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        setOrders(data);
+        getOrders(setOrders);
     }, [])
 
     return (
