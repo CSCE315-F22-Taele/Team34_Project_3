@@ -8,16 +8,63 @@ export const getOrders = async (setItems) => {
         .then((data) => setItems(data));
 }
 
+const filter = (setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empId) => {
+    let newOrders = allOrders;
+
+    if (minPrice !== "")
+        newOrders = newOrders.filter((order) => order.total_price >= parseFloat(minPrice))
+    
+    if (maxPrice !== "")
+        newOrders = newOrders.filter((order) => order.total_price <= parseFloat(maxPrice))
+    
+    if (maxDate !== "")
+        newOrders = newOrders.filter((order) => order.created_at.slice(0, 10) <= maxDate)
+
+
+    if (minDate !== "")
+        newOrders = newOrders.filter((order) => order.created_at.slice(0, 10) >= minDate)
+
+    if (empId !== "")
+        newOrders = newOrders.filter((order) => String(order.employee) === empId)
+
+
+    setOrders(newOrders)
+}
+
 const ViewOrders = () => {
     const [orders, setOrders] = useState([])
+    const [allOrders, setAllOrders] = useState([])
+
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+
+    const [minDate, setMinDate] = useState("");
+    const [maxDate, setMaxDate] = useState("");
+
+    const [empId, setEmpId] = useState("");
 
     useEffect(() => {
         getOrders(setOrders);
+        getOrders(setAllOrders)
     }, [])
 
     return (
         <>
             <div className={"container"} style={{ marginTop: '5%' }}>
+                <div className="row mb-5">
+                    <div className="col-3">
+                        <input type="text" class="form-control" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} placeholder="Min Price: '#.##'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        <input type="text" class="form-control" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="Max Price: '#.##'" aria-label="Dollar amount (with dot and two decimal places)" />
+                    </div>
+                    <div className="col-3">
+                        <input type="text" class="form-control" value={minDate} onChange={(e) => setMinDate(e.target.value)} placeholder="Min Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        <input type="text" class="form-control" value={maxDate} onChange={(e) => setMaxDate(e.target.value)} placeholder="Max Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
+                    </div>
+                    <div className="col-3">
+                        <input type="text" class="form-control" value={empId} onChange={(e) => setEmpId(e.target.value)} placeholder="Employee ID" aria-label="Dollar amount (with dot and two decimal places)" />
+                    </div>
+                    <div className="col-3"><button onClick={() => filter(setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empId)}>Submit</button></div>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>

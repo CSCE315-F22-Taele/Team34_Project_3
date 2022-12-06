@@ -7,13 +7,13 @@ const ViewOrderRow = ({ order }) => {
                 <td><b>{order.order_id}</b></td>
                 <td>{order.customer_name}</td>
                 <td>{order.total_price}</td>
-                <td>{order.created_at}</td>
+                <td>{order.created_at.slice(0, 10)}</td>
                 <td>{order.employee}</td>
-                <td>
+                {/* <td>
                     <button style={{ backgroundColor: "#e60e33", border: "none" }} type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#modal" + order.id}>
                         View More
                     </button>
-                </td>
+                </td> */}
             </tr>
             <div class="modal fade" id={"modal" + order.id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

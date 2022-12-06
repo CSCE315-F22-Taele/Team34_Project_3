@@ -9,6 +9,44 @@ const navItems = [
     { navItemName: "Find", route: "/find" }
 ];
 
+const tryLogin = async (navigate, email, password) => {
+    const getItemsAPI = "http://localhost:5001/login";
+    console.log("TRYING LOGIN", email, password)
+
+    const test = await fetch(getItemsAPI,
+        {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "email": email,
+                "password": password
+            })
+        }
+    );
+
+    console.log(test.json());
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log("DATA", data);
+    //         if (data.role === "manager") {
+    //             console.log("MANAGER");
+    //             sessionStorage.setItem("role", "manager");
+    //             navigate('/manager');
+    //         } else if (data.role === "server") {
+    //             console.log("MANAGER");
+    //             sessionStorage.setItem("role", "server");
+    //             navigate('/server');
+    //         } else {
+    //             console.log("MANAGER");
+    //             alert("Error in email/password combination!");
+    //     }
+    // })
+}
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -47,7 +85,7 @@ const Login = () => {
                             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" id="exampleInputPassword1" />
                         </div>
                         <div style={{ textAlign: 'center' }}>
-                            <button type="submit" class="btn btn-primary btn-lg" style={{ backgroundColor: '#e60e33', border: 'none'}} onClick={() => { }}>Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg" style={{ backgroundColor: '#e60e33', border: 'none' }} onClick={() => { tryLogin(navigate, email, password) }}>Submit</button>
                         </div>
                     </form>
                 </div>
