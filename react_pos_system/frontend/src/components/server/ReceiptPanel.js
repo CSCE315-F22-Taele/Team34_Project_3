@@ -1,9 +1,43 @@
 import { useState, useEffect } from "react";
 
+/**
+ * method to add order
+ * on the server side
+ * @function
+ * @author @OmarIrshad
+ */
+const server_addOrder = async (data, setCart) => {
+    setCart([]);
+    console.log(data);
+    const server_addOrderURL = "http://localhost:5001/server_addOrder"
+
+    const response = await fetch(server_addOrderURL,
+        {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    )
+}
+
+/**
+ * method to delete item from cart
+ * @function
+ * @author @OmarIrshad @AhsanWaseem
+ */
 const deleteItem = (setCart, item_id) => {
     setCart((cart) => cart.filter((cartItem) => cartItem.item.item_id !== item_id))
 }
 
+/**
+ * react component to show receipt panel
+ * @function
+ * @author @OmarIrshad
+ */
 const ReceiptPanel = ({ cart, setCart, setSubPrice, subPrice, setTotalPrice, totalPrice }) => {
     useEffect(() => {
         console.log("Panel ", cart)
@@ -14,6 +48,9 @@ const ReceiptPanel = ({ cart, setCart, setSubPrice, subPrice, setTotalPrice, tot
         setSubPrice(price);
         setTotalPrice(price * 1.0825);
     }, [cart])
+
+    const [customerName, setCustomerName] = useState([]);
+    const [employeeName, setEmployeeName] = useState([]);
 
     return (
         <>
@@ -33,8 +70,14 @@ const ReceiptPanel = ({ cart, setCart, setSubPrice, subPrice, setTotalPrice, tot
                 })}
                 <h5 style={{ marginTop: '15%' }}>Total Price: {Number((totalPrice).toFixed(2))}</h5>
                 <h5>SubTotal: {Number((subPrice).toFixed(2))}</h5>
-                <input type="text" placeholder="Customer Name"></input>
-                <button onClick={() => setCart([])}>Place Order</button>
+                {/* <input type="tfext" placeholder="Employee ID"></input> */}
+                <input  type="tfext " value = {employeeName} onChange={(e) => setEmployeeName(e.target.value)}  placeholder="Employee ID" ></input>
+                {/* <input type="tfext" placeholder="Customer Name"></input> */}
+                <input  type="tfext" value = {customerName} onChange={(e) => setCustomerName(e.target.value)}  placeholder="Customer Name" ></input>
+                {/* <button onClick={() => setCart([])}>Place Order</button> */}
+
+                <button onClick = {() => server_addOrder( {items: cart, totalPrice: Number((totalPrice).toFixed(2)), customerName: {customerName}, employeeName: {employeeName} }, setCart )}  className = ""> Place Order</button>
+
             </div>
         </>
     );

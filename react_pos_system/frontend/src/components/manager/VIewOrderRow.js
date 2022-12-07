@@ -1,5 +1,11 @@
 import MoreOrderItemRow from "./MoreOrderItemRow";
 
+/**
+ * react component for a row in the order table
+ * @function
+ * @param {Object} order - the data of the current order
+ * @author @ThucTran
+ */
 const ViewOrderRow = ({ order }) => {
     return (
         <>

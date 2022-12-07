@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import ViewEmployeeRow from "../components/manager/ViewEmployeeRow";
 
+/**
+ * method for getting employee data from the backend
+ * @function
+ * @param {method} setEmployees - the method used to set the employees state
+ * @author @ThucTran
+ */
 const getEmployees = async (setEmployees) => {
     const getEmpAPI = "http://localhost:5001/allemployees";
     await fetch(getEmpAPI)
@@ -8,6 +14,11 @@ const getEmployees = async (setEmployees) => {
         .then((data) => setEmployees(data));
 }
 
+/**
+ * react component for viewing the employee table
+ * @function
+ * @author @AakashHaran
+ */
 const ViewEmployees = () => {
     const [employees, setEmployees] = useState([]);
 
@@ -15,9 +26,9 @@ const ViewEmployees = () => {
         getEmployees(setEmployees);
     }, [])
 
-    return ( 
+    return (
         <>
-            <div className={"container"} style={{marginTop: '5%'}}>
+            <div className={"container"} style={{ marginTop: '5%' }}>
                 <table class="table">
                     <thead>
                         <tr>
@@ -35,7 +46,7 @@ const ViewEmployees = () => {
                 </table>
             </div>
         </>
-     );
+    );
 }
- 
+
 export default ViewEmployees;

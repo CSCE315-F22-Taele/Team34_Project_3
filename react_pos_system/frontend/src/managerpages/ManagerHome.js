@@ -6,6 +6,11 @@ import BarChartGraph from "../components/manager/graphs/BarChartGraph";
 import PieChartGraph from "../components/manager/graphs/PieChartGraph";
 import "../styles/manager/managerhome.css";
 
+/**
+ * react component for manage home page
+ * @function
+ * @author @AakashHaran
+ */
 const ManagerHome = () => {
     const [sales, setSales] = useState(0);
     const [customers, setCustomers] = useState(0);
@@ -18,7 +23,7 @@ const ManagerHome = () => {
     return (
         <>
             <div style={{ paddingLeft: '3%', paddingRight: '3%', marginBottom: '5%' }}>
-                <div className={"row"} style={{ marginTop: '3%', height: '39vh'}}>
+                <div className={"row"} style={{ marginTop: '3%', height: '39vh' }}>
                     <div className={"col-4"}>
                         <BarChartGraph />
                     </div>

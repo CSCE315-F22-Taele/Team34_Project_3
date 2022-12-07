@@ -38,7 +38,11 @@ const data = [
     amt: 2100,
   },
 ];
-
+/**
+ * react component for barchart 
+ * @function
+ * @author @AakashHaran
+ */
 export default class BarChartGraph extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
 

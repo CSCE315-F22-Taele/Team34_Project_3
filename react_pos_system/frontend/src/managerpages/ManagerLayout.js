@@ -14,6 +14,12 @@ const navItems = [
     { navItemName: "Orders", route: "/orders" }
 ];
 
+/**
+ * function to dynamically render components
+ * depending on the path the user accesses
+ * @function
+ * @author @AakashHaran
+ */
 function placePage() {
     const path = window.location.pathname;
     switch (path) {
@@ -30,12 +36,24 @@ function placePage() {
     }
 }
 
+/**
+ * method for validating whether a user is indeed the manager 
+ * before accessing this page
+ * @function
+ * @param {method} navigate - the method used to navigate the user to different pages
+ * @author @AakashHaran
+ */
 const validateManager = (navigate) => {
     if (sessionStorage.getItem("role") !== "manager") {
         navigate("/forbidden");
     }
 }
 
+/**
+ * react component for templating the manager layout
+ * @function
+ * @author @AakashHaran
+ */
 const ManagerLayout = () => {
     const navigate = useNavigate();
 

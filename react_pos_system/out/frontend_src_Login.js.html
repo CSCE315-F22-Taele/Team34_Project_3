@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: frontend/src/Login.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: frontend/src/Login.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import { GoogleOAuthProvider, useGoogleLogin, GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
+
+import NavBar from "./components/universal/NavBar";
+
+const navItems = [
+    { navItemName: "Home", route: "/" },
+    { navItemName: "Menu", route: "/menu" },
+    { navItemName: "Find", route: "/find" }
+];
+
+/**
+ * method to check login credentials
+ * @method
+ * @param navigate - method to redirect
+ * @param {string} email - email of user
+ * * @param {string} password - password of user
+ * @author @AakashHaran
+ */
+const tryLogin = async (navigate, email, password) => {
+    const getItemsAPI = "http://localhost:5001/login";
+    console.log("TRYING LOGIN", email, password)
+
+    const test = await fetch(getItemsAPI,
+        {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "email": email,
+                "password": password
+            })
+        }
+    );
+
+    console.log(test.json());
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log("DATA", data);
+    //         if (data.role === "manager") {
+    //             console.log("MANAGER");
+    //             sessionStorage.setItem("role", "manager");
+    //             navigate('/manager');
+    //         } else if (data.role === "server") {
+    //             console.log("MANAGER");
+    //             sessionStorage.setItem("role", "server");
+    //             navigate('/server');
+    //         } else {
+    //             console.log("MANAGER");
+    //             alert("Error in email/password combination!");
+    //     }
+    // })
+}
+
+/**
+ * react component for login page
+ * @function
+ * @author @AakashHaran
+ */
+const Login = (props) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    return (
+        &lt;>
+            &lt;NavBar navItems={navItems} isCustomer={false} cart={props.cart} home={"/"} />
+            &lt;GoogleOAuthProvider clientId="243604614412-hdjn1eb24blri85d9apimi9tts2pe15u.apps.googleusercontent.com">
+                &lt;div className='form-container' style={{ width: '50%', position: "absolute", top: "12%", left: "50%", transform: "translate(-50%, 50%)" }}>
+                    &lt;GoogleLogin
+                        onSuccess={credentialResponse => {
+                            sessionStorage.setItem("role", "manager");
+                            navigate('/server');
+                            // TODO: make sure to change based on who logged in
+                            console.log(credentialResponse);
+                        }}
+                        onError={() => {
+                            console.log('Login Failed');
+                        }}
+                        text={"Sign in with Google"}
+                        shape={"pill"}
+                        theme={'filled_blue'}
+                        width={"500"}
+                        size={"large"}
+                    />
+                    &lt;form style={{ marginTop: '3%', padding: '5%', boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}>
+                        &lt;div class="mb-3">
+                            &lt;label for="exampleInputEmail1" class="form-label">Email address&lt;/label>
+                            &lt;input type="email" value={email} onChange={(e) => setEmail(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            &lt;div id="emailHelp" class="form-text">Enter your employee assigned Chick-Fil-A email&lt;/div>
+                        &lt;/div>
+                        &lt;div class="mb-3">
+                            &lt;label for="exampleInputPassword1" class="form-label">Password&lt;/label>
+                            &lt;input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" id="exampleInputPassword1" />
+                        &lt;/div>
+                        &lt;div style={{ textAlign: 'center' }}>
+                            &lt;button type="submit" class="btn btn-primary btn-lg" style={{ backgroundColor: '#e60e33', border: 'none' }} onClick={() => { tryLogin(navigate, email, password) }}>Submit&lt;/button>
+                        &lt;/div>
+                    &lt;/form>
+                &lt;/div>
+            &lt;/GoogleOAuthProvider>;
+        &lt;/>
+    );
+}
+
+export default Login;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="pool.html">pool</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CartItemCard">CartItemCard</a></li><li><a href="global.html#Forbidden">Forbidden</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#ManagerHome">ManagerHome</a></li><li><a href="global.html#ManagerLayout">ManagerLayout</a></li><li><a href="global.html#MenuItemCard">MenuItemCard</a></li><li><a href="global.html#MenuItems">MenuItems</a></li><li><a href="global.html#MenuNavBar">MenuNavBar</a></li><li><a href="global.html#MoreOrderItemRow">MoreOrderItemRow</a></li><li><a href="global.html#MyMap">MyMap</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#ReceiptPanel">ReceiptPanel</a></li><li><a href="global.html#ServerHome">ServerHome</a></li><li><a href="global.html#ViewEmployeeRow">ViewEmployeeRow</a></li><li><a href="global.html#ViewEmployees">ViewEmployees</a></li><li><a href="global.html#ViewIngredientRow">ViewIngredientRow</a></li><li><a href="global.html#ViewItemRow">ViewItemRow</a></li><li><a href="global.html#ViewItems">ViewItems</a></li><li><a href="global.html#ViewOrderRow">ViewOrderRow</a></li><li><a href="global.html#ViewOrders">ViewOrders</a></li><li><a href="global.html#ViewPairRow">ViewPairRow</a></li><li><a href="global.html#ViewStock">ViewStock</a></li><li><a href="global.html#addIngredients">addIngredients</a></li><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addToOrder">addToOrder</a></li><li><a href="global.html#deleteItem">deleteItem</a></li><li><a href="global.html#filter">filter</a></li><li><a href="global.html#getEmployees">getEmployees</a></li><li><a href="global.html#getIngredients">getIngredients</a></li><li><a href="global.html#getItems">getItems</a></li><li><a href="global.html#getOrders">getOrders</a></li><li><a href="global.html#getPairs">getPairs</a></li><li><a href="global.html#getTable">getTable</a></li><li><a href="global.html#logOut">logOut</a></li><li><a href="global.html#placeClockedIn">placeClockedIn</a></li><li><a href="global.html#placeLoginButton">placeLoginButton</a></li><li><a href="global.html#placePage">placePage</a></li><li><a href="global.html#server_addOrder">server_addOrder</a></li><li><a href="global.html#setItembyType">setItembyType</a></li><li><a href="global.html#tryLogin">tryLogin</a></li><li><a href="global.html#updateIngredients">updateIngredients</a></li><li><a href="global.html#validateManager">validateManager</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 22:34:25 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

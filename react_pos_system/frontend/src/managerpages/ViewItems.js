@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import ViewItemRow from "../components/manager/ViewItemRow";
 import ViewPairRow from "../components/manager/ViewPairRow";
 
+/**
+ * method for getting items from the backend
+ * @method
+ * @param {method} setItems - the method used to set the state of the items vaiable
+ * @author @OmarIrshad
+ */
 export const getItems = async (setItems) => {
     const getItemsAPI = "http://localhost:5001/allitems";
     await fetch(getItemsAPI)
@@ -9,6 +15,13 @@ export const getItems = async (setItems) => {
         .then((data) => setItems(data));
 }
 
+/**
+ * method for getting frequent pairs from the databse
+ * @method
+ * @param {method} setPairs - the method used to set the state of
+ * the frequent pairs variable
+ * @author @AhsanWaseem
+ */
 const getPairs = async (setPairs) => {
     const getItemsAPI = "http://localhost:5001/frequentpairs";
     await fetch(getItemsAPI)
@@ -16,6 +29,12 @@ const getPairs = async (setPairs) => {
         .then((data) => setPairs(data));
 }
 
+/**
+ * method for adding an item to the database
+ * @method
+ * @param {Object} data - the data about the item to be added to the backend
+ * @author @AakashHaran
+ */
 const addItem = async (data) => {
     console.log(data);
     const addItemURL = "http://localhost:5001/additem"
@@ -33,24 +52,29 @@ const addItem = async (data) => {
     )
 }
 
+/**
+ * method for placing the correct table in the view page
+ * @method
+ * @author @AakashHaran
+ */
 const getTable = (viewFrequent, items, pairs) => {
     if (!viewFrequent) {
         return (
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {items.map((item) => {
-                    return <ViewItemRow item={item} />
-                })}
-            </tbody>
-        </table>)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items.map((item) => {
+                        return <ViewItemRow item={item} />
+                    })}
+                </tbody>
+            </table>)
     } else {
         return (
             <table class="table">
@@ -70,6 +94,11 @@ const getTable = (viewFrequent, items, pairs) => {
     }
 }
 
+/**
+ * react component for viewing the ingredient stock page
+ * @function
+ * @author @AakashHaran
+ */
 const ViewStock = () => {
     const [items, setItems] = useState([]);
     const [pairs, setPairs] = useState([]);
@@ -143,9 +172,9 @@ const ViewStock = () => {
                     Add an Item
                 </button>
                 <button type="button" class="btn btn-primary mb-3" onClick={() => setViewFrequent(!viewFrequent)} style={{ marginLeft: '10px', backgroundColor: '#e60e33', border: 'none' }}>
-                    { orderBtnText }
+                    {orderBtnText}
                 </button>
-                { getTable(viewFrequent, items, pairs) }
+                {getTable(viewFrequent, items, pairs)}
             </div>
         </>
     );

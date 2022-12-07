@@ -11,17 +11,22 @@ const navItems = [
     { navItemName: "Find", route: "/find" }
 ];
 
-const Home = () => {
+/**
+ * react component for home page
+ * @function
+ * @author @AakashHaran
+ */
+const Home = (props) => {
 
     return (
-        <>      
+        <>
 
-            <NavBar navItems={navItems} isCustomer={false} home={"/"} />
+            <NavBar navItems={navItems} cart = {props.cart} isCustomer={false} home={"/"} />
             <div className={"homecontainer"}>
                 <div className={"sectionleft"}>
                     <div className={"textcontainer fade-in-text"}>
                         <p style={{ fontSize: '80px', fontFamily: 'serif', color: 'black' }}>Order our World Famous Chick-Fil-A Sandwich!</p>
-                        <a className={"orderbutton"} to = "/menu">Order Now!</a>
+                        <a className={"orderbutton"} to="/menu">Order Now!</a>
                     </div>
                 </div>
                 <div className={"sectionright"}>

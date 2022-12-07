@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: frontend/src/managerpages/ViewOrders.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: frontend/src/managerpages/ViewOrders.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ViewOrderRow from "../components/manager/VIewOrderRow";
+import { useState, useEffect } from "react";
+
+/**
+ * method to get orders from the backend
+ * @method
+ * @param {method} setItems - the method used to set the state of the items
+ * @author @AhsanWaseem
+ */
+export const getOrders = async (setItems) => {
+    const getItemsAPI = "http://localhost:5001/allorders";
+    await fetch(getItemsAPI)
+        .then((response) => response.json())
+        .then((data) => setItems(data));
+}
+
+/**
+ * method to filter out certain orders based on specified criteria
+ * @method
+ * @author @OmarIrshad
+ */
+const filter = (setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empId) => {
+    let newOrders = allOrders;
+
+    if (minPrice !== "")
+        newOrders = newOrders.filter((order) => order.total_price >= parseFloat(minPrice))
+
+    if (maxPrice !== "")
+        newOrders = newOrders.filter((order) => order.total_price &lt;= parseFloat(maxPrice))
+
+    if (maxDate !== "")
+        newOrders = newOrders.filter((order) => order.created_at.slice(0, 10) &lt;= maxDate)
+
+
+    if (minDate !== "")
+        newOrders = newOrders.filter((order) => order.created_at.slice(0, 10) >= minDate)
+
+    if (empId !== "")
+        newOrders = newOrders.filter((order) => String(order.employee) === empId)
+
+
+    setOrders(newOrders)
+}
+
+/**
+ * react component for viewing all the past orders
+ * @function
+ * @author @AakashHaran
+ */
+const ViewOrders = () => {
+    const [orders, setOrders] = useState([])
+    const [allOrders, setAllOrders] = useState([])
+
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+
+    const [minDate, setMinDate] = useState("");
+    const [maxDate, setMaxDate] = useState("");
+
+    const [empId, setEmpId] = useState("");
+
+    useEffect(() => {
+        getOrders(setOrders);
+        getOrders(setAllOrders)
+    }, [])
+
+    return (
+        &lt;>
+            &lt;div className={"container"} style={{ marginTop: '5%' }}>
+                &lt;div className="row mb-5">
+                    &lt;div className="col-3">
+                        &lt;input type="text" class="form-control" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} placeholder="Min Price: '#.##'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        &lt;input type="text" class="form-control" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="Max Price: '#.##'" aria-label="Dollar amount (with dot and two decimal places)" />
+                    &lt;/div>
+                    &lt;div className="col-3">
+                        &lt;input type="text" class="form-control" value={minDate} onChange={(e) => setMinDate(e.target.value)} placeholder="Min Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        &lt;input type="text" class="form-control" value={maxDate} onChange={(e) => setMaxDate(e.target.value)} placeholder="Max Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
+                    &lt;/div>
+                    &lt;div className="col-3">
+                        &lt;input type="text" class="form-control" value={empId} onChange={(e) => setEmpId(e.target.value)} placeholder="Employee ID" aria-label="Dollar amount (with dot and two decimal places)" />
+                    &lt;/div>
+                    &lt;div className="col-3">&lt;button onClick={() => filter(setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empId)}>Submit&lt;/button>&lt;/div>
+                &lt;/div>
+                &lt;table class="table">
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th scope="col">Order ID&lt;/th>
+                            &lt;th scope="col">Customer Name&lt;/th>
+                            &lt;th scope="col">Transaction Price&lt;/th>
+                            &lt;th scope="col">Transaction Date&lt;/th>
+                            &lt;th scope="col">Done by Employee&lt;/th>
+                            &lt;th scope="col">&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                    &lt;tbody>
+                        {orders.map((order) => {
+                            return &lt;ViewOrderRow order={order} />
+                        })}
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/>
+    );
+}
+
+export default ViewOrders;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="pool.html">pool</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CartItemCard">CartItemCard</a></li><li><a href="global.html#Forbidden">Forbidden</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#ManagerHome">ManagerHome</a></li><li><a href="global.html#ManagerLayout">ManagerLayout</a></li><li><a href="global.html#MenuItemCard">MenuItemCard</a></li><li><a href="global.html#MenuItems">MenuItems</a></li><li><a href="global.html#MenuNavBar">MenuNavBar</a></li><li><a href="global.html#MoreOrderItemRow">MoreOrderItemRow</a></li><li><a href="global.html#MyMap">MyMap</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#ReceiptPanel">ReceiptPanel</a></li><li><a href="global.html#ServerHome">ServerHome</a></li><li><a href="global.html#ViewEmployeeRow">ViewEmployeeRow</a></li><li><a href="global.html#ViewEmployees">ViewEmployees</a></li><li><a href="global.html#ViewIngredientRow">ViewIngredientRow</a></li><li><a href="global.html#ViewItemRow">ViewItemRow</a></li><li><a href="global.html#ViewItems">ViewItems</a></li><li><a href="global.html#ViewOrderRow">ViewOrderRow</a></li><li><a href="global.html#ViewOrders">ViewOrders</a></li><li><a href="global.html#ViewPairRow">ViewPairRow</a></li><li><a href="global.html#ViewStock">ViewStock</a></li><li><a href="global.html#addIngredients">addIngredients</a></li><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addToOrder">addToOrder</a></li><li><a href="global.html#deleteItem">deleteItem</a></li><li><a href="global.html#filter">filter</a></li><li><a href="global.html#getEmployees">getEmployees</a></li><li><a href="global.html#getIngredients">getIngredients</a></li><li><a href="global.html#getItems">getItems</a></li><li><a href="global.html#getOrders">getOrders</a></li><li><a href="global.html#getPairs">getPairs</a></li><li><a href="global.html#getTable">getTable</a></li><li><a href="global.html#logOut">logOut</a></li><li><a href="global.html#placeClockedIn">placeClockedIn</a></li><li><a href="global.html#placeLoginButton">placeLoginButton</a></li><li><a href="global.html#placePage">placePage</a></li><li><a href="global.html#server_addOrder">server_addOrder</a></li><li><a href="global.html#setItembyType">setItembyType</a></li><li><a href="global.html#tryLogin">tryLogin</a></li><li><a href="global.html#updateIngredients">updateIngredients</a></li><li><a href="global.html#validateManager">validateManager</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 22:34:25 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

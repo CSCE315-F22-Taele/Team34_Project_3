@@ -1,11 +1,14 @@
 import NavBar from "./components/universal/NavBar";
-
-const navItems = [];
-
+/**
+ * react component for the forbidden page
+ * redirected to in the event of unauthorized access
+ * @function
+ * @author @AakashHaran
+ */
 const Forbidden = () => {
     return (
         <>
-            <NavBar navItems={navItems} home={"/"} />
+            <NavBar navItems={[]} home={"/"} />
             <div style={{
                 position: "absolute",
                 top: "50%",

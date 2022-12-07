@@ -1,5 +1,11 @@
 const Pool = require("pg").Pool;
 
+/**
+ * Represents the pool object
+ * @constructor
+ * @author @AakashHaran
+ * @param {Object} credentials - database credentials
+ */
 const pool = new Pool({
     user: "csce315_914_haran",
     password: "password",

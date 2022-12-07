@@ -39,6 +39,11 @@ const data = [
   },
 ];
 
+/**
+ * react component for line graph
+ * @function
+ * @author @AakashHaran
+ */
 export default class LineGraph extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/simple-line-chart-kec3v';
 
@@ -62,7 +67,7 @@ export default class LineGraph extends PureComponent {
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="Sales" stroke="#cf0d2e" activeDot={{ r: 4 }} />
-          <Line type="monotone" dataKey="Orders" stroke="black" activeDot={{ r: 4 }}/>
+          <Line type="monotone" dataKey="Orders" stroke="black" activeDot={{ r: 4 }} />
         </LineChart>
       </ResponsiveContainer>
     );

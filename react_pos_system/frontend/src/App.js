@@ -123,9 +123,9 @@ export default function App() {
         <BrowserRouter>
         
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home cart = {cart}/>}></Route>
             <Route path="/menu" element={<MenuView cart={cart} addToCart={addToCart} setCart={setCart} />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login cart = {cart}/>}></Route>
             <Route path="/server" element={<ServerHome />}></Route>
             <Route path="/cart" element={<CartView cart={cart} setCart={setCart} incrementCartItem={incrementCartItem} decrementCartItem={decrementCartItem} sendOrder={sendOrder} />}></Route>
             <Route path="/manager" element={<ManagerLayout />}></Route>
@@ -134,7 +134,7 @@ export default function App() {
             <Route path="/ingredients" element={<ManagerLayout />}></Route>
             <Route path="/employees" element={<ManagerLayout />}></Route>
             <Route path="/orders" element={<ManagerLayout />}></Route>
-            <Route path="/find" element={<FindView/>}></Route>
+            <Route path="/find" element={<FindView cart = {cart}/>}></Route>
           </Routes>
         </BrowserRouter>
       </div>

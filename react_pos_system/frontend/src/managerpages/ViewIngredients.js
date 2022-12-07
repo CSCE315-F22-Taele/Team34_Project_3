@@ -2,6 +2,12 @@ import NavBar from "../components/universal/NavBar";
 import { useState, useEffect } from "react";
 import ViewIngredientsRow from "../components/manager/ViewIngredientsRow";
 
+/**
+ * method for getting ingredient data from the backend
+ * @method
+ * @param {method} setIngredients - the method used to set the state of the ingredients
+ * @author @ThucTran
+ */
 const getIngredients = async (setIngredients) => {
     const getIngredientsAPI = "http://localhost:5001/allingredients";
     await fetch(getIngredientsAPI)
@@ -9,6 +15,12 @@ const getIngredients = async (setIngredients) => {
         .then((data) => setIngredients(data));
 }
 
+/**
+ * method for adding a new ingredient to the backend
+ * @method
+ * @param {Object} data  - the data of the ingredient to add to the database
+ * @author @ThucTran
+ */
 const addIngredients = async (data) => {
     console.log(data);
     const addItemURL = "http://localhost:5001/addingredient"
@@ -26,6 +38,12 @@ const addIngredients = async (data) => {
     )
 }
 
+/**
+ * method for updating ingredient stock in the backend
+ * @method
+ * @param {Object} data - the data of the ingredient to edit in the backend
+ * @author @AakashHaran
+ */
 const updateIngredients = async (data) => {
     console.log(data);
     const addItemURL = "http://localhost:5001/updatestock"
@@ -43,7 +61,11 @@ const updateIngredients = async (data) => {
     )
 }
 
-
+/**
+ * react component for viewing items page
+ * @function
+ * @author @AakashHaran
+ */
 const ViewItems = () => {
     const [Ingredients, setIngredients] = useState([]);
 

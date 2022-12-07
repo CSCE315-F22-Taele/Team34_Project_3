@@ -7,7 +7,6 @@ const data = [
   { name: 'Treats', value: 300 },
   { name: 'Salads', value: 200 },
 ];
-
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
@@ -54,6 +53,11 @@ const renderActiveShape = (props) => {
   );
 };
 
+/**
+ * react component for pie chart
+ * @function
+ * @author @AakashHaran
+ */
 export default class PieChartGraph extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-active-shape-y93si';
 

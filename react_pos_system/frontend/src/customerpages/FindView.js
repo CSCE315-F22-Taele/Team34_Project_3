@@ -7,10 +7,16 @@ const navItems = [
   { navItemName: "Find", route: "/find" }
 ];
 
-export default function FindPage() {
+/**
+ * react component for the find feature of the customer
+ * to show nearest Chick Fil A
+ * @function
+ * @author @OmarIrshad @ThucTran
+ */
+export default function FindPage(props) {
   return (
     <div>
-      <NavBar navItems={navItems} isCustomer={false} home={"/"} />
+      <NavBar navItems={navItems} cart = {props.cart} isCustomer={false} home={"/"} />
       <h1>Find Nearest Location</h1>
       <Map></Map>
     </div>

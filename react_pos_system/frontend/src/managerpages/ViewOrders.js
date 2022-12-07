@@ -1,6 +1,12 @@
 import ViewOrderRow from "../components/manager/VIewOrderRow";
 import { useState, useEffect } from "react";
 
+/**
+ * method to get orders from the backend
+ * @method
+ * @param {method} setItems - the method used to set the state of the items
+ * @author @AhsanWaseem
+ */
 export const getOrders = async (setItems) => {
     const getItemsAPI = "http://localhost:5001/allorders";
     await fetch(getItemsAPI)
@@ -8,15 +14,20 @@ export const getOrders = async (setItems) => {
         .then((data) => setItems(data));
 }
 
+/**
+ * method to filter out certain orders based on specified criteria
+ * @method
+ * @author @OmarIrshad
+ */
 const filter = (setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empId) => {
     let newOrders = allOrders;
 
     if (minPrice !== "")
         newOrders = newOrders.filter((order) => order.total_price >= parseFloat(minPrice))
-    
+
     if (maxPrice !== "")
         newOrders = newOrders.filter((order) => order.total_price <= parseFloat(maxPrice))
-    
+
     if (maxDate !== "")
         newOrders = newOrders.filter((order) => order.created_at.slice(0, 10) <= maxDate)
 
@@ -31,6 +42,11 @@ const filter = (setOrders, allOrders, minPrice, maxPrice, minDate, maxDate, empI
     setOrders(newOrders)
 }
 
+/**
+ * react component for viewing all the past orders
+ * @function
+ * @author @AakashHaran
+ */
 const ViewOrders = () => {
     const [orders, setOrders] = useState([])
     const [allOrders, setAllOrders] = useState([])

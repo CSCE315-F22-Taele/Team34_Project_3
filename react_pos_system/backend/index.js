@@ -12,7 +12,13 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`Started listening on PORT ${PORT}`);
 });
 
-// get all menu items route
+/**
+ * get request for all items
+ * @function
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * @param {Object} res - response object from server
+ */
 app.get("/allitems", async (req, res) => {
     try {
         const getAllItemsQuery = "SELECT * FROM items ORDER BY item_id;";
@@ -25,6 +31,14 @@ app.get("/allitems", async (req, res) => {
     }
 })
 
+
+/**
+ * get request for all frequent pairs
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.get("/frequentpairs", async (req, res) => {
     try {
         const getFrequentPairsQuery = "select t1.item_id as first_item, t2.item_id as second_item, count(distinct t1.order_id) as num_orders \
@@ -40,6 +54,14 @@ app.get("/frequentpairs", async (req, res) => {
     }
 })
 
+
+/**
+ * get request for all employees
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.get("/allemployees", async (req, res) => {
     try {
         const getAllEmployeesQuery = "SELECT * FROM employees;";
@@ -50,6 +72,14 @@ app.get("/allemployees", async (req, res) => {
     }
 })
 
+
+/**
+ * get request for all ingredients
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.get("/allingredients", async (req, res) => {
     try {
         const getAllIngredientsQuery = "SELECT * FROM ingredients order by ingredients_id;";
@@ -60,6 +90,14 @@ app.get("/allingredients", async (req, res) => {
     }
 })
 
+
+/**
+ * get request for all orders
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.get("/allorders", async (req, res) => {
     try {
         const getAllIngredientsQuery = "SELECT * FROM orders order by order_id;";
@@ -71,6 +109,14 @@ app.get("/allorders", async (req, res) => {
 })
 
 
+
+/**
+ * get request for health check
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.get("/test", async (req, res) => {
     try {
         res.status(200);
@@ -79,6 +125,14 @@ app.get("/test", async (req, res) => {
     }
 })
 
+
+/**
+ * post request for login
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -103,6 +157,14 @@ app.post("/login", async (req, res) => {
     }
 })
 
+
+/**
+ * post request for adding item
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.post("/additem", async (req, res) => {
     const { itemName, price, ingredients, quantities, type } = req.body;
     const getMaxID = 'SELECT MAX(item_id) FROM items';
@@ -118,6 +180,14 @@ app.post("/additem", async (req, res) => {
     }
 })
 
+
+/**
+ * post request for adding ingredient
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.post("/addingredient", async (req, res) => {
     const { name, stock, minAmount } = req.body;
     const getMaxID = 'SELECT MAX(ingredients_id) FROM ingredients';
@@ -136,6 +206,13 @@ app.post("/addingredient", async (req, res) => {
 })
 
 
+/**
+ * post request for updating ingredient
+ * @method
+ * @author @AakashHaran
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.post("/updatestock", async (req, res) => {
     const { ingredientID, name, stock, minAmount } = req.body;
     const updateItemQuery = `UPDATE ingredients SET ingredients_name='${name}', ingredients_stock=${stock}, min_amount=${minAmount} WHERE ingredients_id=${ingredientID}`;
@@ -150,13 +227,21 @@ app.post("/updatestock", async (req, res) => {
     }
 })
 
+
+/**
+ * post request for adding order
+ * @method
+ * @author @OmarIrshad
+ * @param {Object} req - request from client
+ * @param {Object} res - response object from server
+ */
 app.post("/server_addOrder", async (req, res) => {
     const {items ,totalPrice, customerName, employeeName} = req.body;
     const getMaxOrderIDQuery = 'SELECT MAX(order_id) FROM orders;';
     const newOrderID = (await (await pool.query(getMaxOrderIDQuery)).rows[0].max) + 1;
 
     const addToOrdersQuery = `INSERT INTO orders (order_id, customer_name, total_price, employee) VALUES \
-    (${newOrderID},'${customerName}', '${totalPrice}', '${employeeName}' ) ;`;
+    (${newOrderID},'${customerName.customerName}', '${totalPrice}', '${employeeName.employeeName}' ) ;`;
 
     console.log(addToOrdersQuery);
     //Add orders Query
@@ -201,6 +286,14 @@ app.post("/server_addOrder", async (req, res) => {
 
 })
 
+
+/**
+ * post request for adding order
+ * @method
+ * @author @OmarIrshad
+ * @param {Object} req - request from client
+ * * @param {Object} res - response object from server
+ */
 app.post("/customer_addOrder", async (req, res) => {
     const {items ,totalPrice, customerName, employeeName} = req.body;
     const getMaxOrderIDQuery = 'SELECT MAX(order_id) FROM orders;';
@@ -252,3 +345,5 @@ app.post("/customer_addOrder", async (req, res) => {
 
 
 })
+
+

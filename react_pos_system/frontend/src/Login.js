@@ -10,6 +10,14 @@ const navItems = [
     { navItemName: "Find", route: "/find" }
 ];
 
+/**
+ * method to check login credentials
+ * @method
+ * @param navigate - method to redirect
+ * @param {string} email - email of user
+ * * @param {string} password - password of user
+ * @author @AakashHaran
+ */
 const tryLogin = async (navigate, email, password) => {
     const getItemsAPI = "http://localhost:5001/login";
     console.log("TRYING LOGIN", email, password)
@@ -48,7 +56,12 @@ const tryLogin = async (navigate, email, password) => {
     // })
 }
 
-const Login = () => {
+/**
+ * react component for login page
+ * @function
+ * @author @AakashHaran
+ */
+const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -56,7 +69,7 @@ const Login = () => {
 
     return (
         <>
-            <NavBar navItems={navItems} isCustomer={false} home={"/"} />
+            <NavBar navItems={navItems} isCustomer={false} cart={props.cart} home={"/"} />
             <GoogleOAuthProvider clientId="243604614412-hdjn1eb24blri85d9apimi9tts2pe15u.apps.googleusercontent.com">
                 <div className='form-container' style={{ width: '50%', position: "absolute", top: "12%", left: "50%", transform: "translate(-50%, 50%)" }}>
                     <GoogleLogin
