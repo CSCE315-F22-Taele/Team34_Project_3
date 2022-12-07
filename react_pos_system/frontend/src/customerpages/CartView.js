@@ -4,7 +4,23 @@ import CartItemCard from '../components/customer/CartItemCard';
 import '../styles/customer/cart.css'
 import empcart from '../assets/emptycart.png';
 import { useNavigate, Link } from "react-router-dom";
+const server_addOrder = async (data, setCart) => {
+    setCart([]);
+    console.log(data);
+    const server_addOrderURL = "http://localhost:5001/customer_addOrder"
 
+    const response = await fetch(server_addOrderURL,
+        {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    )
+}
 
 
 
@@ -19,6 +35,7 @@ export default function CartView(props) {
 
     const SubTotal = props.cart.reduce((a,c) => a + c.item_price * c.item_quantity, 0)
     const TotalPrice = SubTotal * 1.0825;
+    const [customerName, setCustomerName] = useState([]);
 
     return (
         <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%' }}>
@@ -47,8 +64,9 @@ export default function CartView(props) {
                     <div style={{fontFamily: 'serif', color: 'black' }}>Sub Total: ${SubTotal.toFixed(2)}</div>
                     <div style={{fontFamily: 'serif', color: 'black' }}>Total: ${TotalPrice.toFixed(2)}</div>
                 </div>
-                <button onClick = {() => props.sendOrder(props.cart, props.setCart, TotalPrice)} className = "Send_Order"> Place Order</button>
-
+                {/* <button onClick = {() => props.sendOrder(props.cart, props.setCart, TotalPrice)} className = "Send_Order"> Place Order</button> */}
+                <input type="Name " value = {customerName} onChange={(e) => setCustomerName(e.target.value)}  placeholder="Customer Name" ></input>
+                <button onClick = {() => server_addOrder( {items: props.cart, totalPrice: Number((TotalPrice).toFixed(2)), customerName: {customerName}, employeeName: "0000000" }, props.setCart )}  className = "Send_Order"> Place Order</button>
                 </>
            
             )}
@@ -60,4 +78,3 @@ export default function CartView(props) {
 
     );
 };
-
