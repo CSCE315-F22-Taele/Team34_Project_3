@@ -8,7 +8,7 @@ const CartItemCard = (props) => {
 
     <div className="CartItemCard">
         <div className = "cartImg">
-            <img src={props.item.image}  height={500} width={350}/>
+            <img src={props.item.image_url}  height={500} width={350}/>
         </div>
         <div className="CartItemRight">
             <h4 class = "CartItem_Name"> {props.item.item_name} </h4>

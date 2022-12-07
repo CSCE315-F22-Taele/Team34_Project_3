@@ -70,11 +70,36 @@ app.get("/allorders", async (req, res) => {
     }
 })
 
+
 app.get("/test", async (req, res) => {
     try {
         res.status(200);
     } catch (err) {
         console.error(err.message);
+    }
+})
+
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    console.log(email, password)
+
+    const getServerQuery = `SELECT * FROM employees WHERE email = '${email}' AND password = '${password}' AND emp_role != 'manager'`;
+    const getManagerQuery = `SELECT * FROM employees WHERE email = '${email}' AND password = '${password}' AND emp_role = 'manager'`;
+
+    try {
+        const isServer = await (await pool.query(getServerQuery)).rows.length > 0;
+        const isManager = await (await pool.query(getManagerQuery)).rows.length > 0;
+
+        if (isServer) {
+            res.status(200).json({ "role": "server" })
+        } else if (isManager) {
+            res.status(200).json({ "role": "manager" })
+        } else {
+            res.status(200).json({ "role": "logged_out" })
+        }
+    } catch (error) {
+        console.error(error.message);
     }
 })
 

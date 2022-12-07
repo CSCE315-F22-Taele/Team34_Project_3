@@ -8,7 +8,7 @@ const MenuItemCard = (props) => {
     <div className={"menuitemcard"}>
       
     <div className={"img"}>
-        <img src={props.item.image}  height={500} width={350}/>
+        <img src={props.item.image_url}  height={500} width={350}/>
     </div>
     
       <h4 class = "menu_itemname"> {props.item.item_name} </h4>

@@ -3,8 +3,10 @@ import cfaHomeCoke from '../src/assets/cfaHomeCoke.png';
 import cfaHomeSand from '../src/assets/cfaHomeSand.png';
 import sandwich1 from "./assets/cfapics/CFASandwich.png";
 import sandwich2 from "./assets/cfapics/_0000s_0009_Final__0026_CFA_PDP_Grilled-Deluxe-Sandwich_1085.png";
-
+import { useEffect } from "react";
+import React from "react";
 const navItems = [
+    { navItemName: "Home", route: "/" },
     { navItemName: "Menu", route: "/menu" },
     { navItemName: "Find", route: "/find" }
 ];
@@ -12,7 +14,8 @@ const navItems = [
 const Home = () => {
 
     return (
-        <>
+        <>      
+
             <NavBar navItems={navItems} isCustomer={false} home={"/"} />
             <div className={"homecontainer"}>
                 <div className={"sectionleft"}>
