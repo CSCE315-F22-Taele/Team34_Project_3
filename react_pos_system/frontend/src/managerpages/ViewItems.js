@@ -9,7 +9,7 @@ import ViewPairRow from "../components/manager/ViewPairRow";
  * @author @OmarIrshad
  */
 export const getItems = async (setItems) => {
-    const getItemsAPI = "http://https://pos-03I8.onrender.com/allitems";
+    const getItemsAPI = "https://pos-03l8.onrender.com/allitems";
     await fetch(getItemsAPI)
         .then((response) => response.json())
         .then((data) => setItems(data));
@@ -23,7 +23,7 @@ export const getItems = async (setItems) => {
  * @author @AhsanWaseem
  */
 const getPairs = async (setPairs) => {
-    const getItemsAPI = "http://https://pos-03I8.onrender.com/frequentpairs";
+    const getItemsAPI = "https://pos-03l8.onrender.com/frequentpairs";
     await fetch(getItemsAPI)
         .then((response) => response.json())
         .then((data) => setPairs(data));
@@ -37,7 +37,7 @@ const getPairs = async (setPairs) => {
  */
 const addItem = async (data) => {
     console.log(data);
-    const addItemURL = "http://https://pos-03I8.onrender.com/additem"
+    const addItemURL = "https://pos-03l8.onrender.com/additem"
 
     const response = await fetch(addItemURL,
         {

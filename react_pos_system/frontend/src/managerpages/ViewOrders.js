@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
  * @author @AhsanWaseem
  */
 export const getOrders = async (setItems) => {
-    const getItemsAPI = "http://https://pos-03I8.onrender.com/allorders";
+    const getItemsAPI = "https://pos-03l8.onrender.com/allorders";
     await fetch(getItemsAPI)
         .then((response) => response.json())
         .then((data) => setItems(data));

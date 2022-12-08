@@ -8,7 +8,7 @@ import ViewEmployeeRow from "../components/manager/ViewEmployeeRow";
  * @author @ThucTran
  */
 const getEmployees = async (setEmployees) => {
-    const getEmpAPI = "http://https://pos-03I8.onrender.com/allemployees";
+    const getEmpAPI = "https://pos-03l8.onrender.com/allemployees";
     await fetch(getEmpAPI)
         .then((response) => response.json())
         .then((data) => setEmployees(data));

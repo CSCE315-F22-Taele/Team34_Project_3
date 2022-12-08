@@ -14,7 +14,7 @@ import { useNavigate, Link } from "react-router-dom";
 const server_addOrder = async (data, setCart) => {
     setCart([]);
     console.log(data);
-    const server_addOrderURL = "http://https://pos-03I8.onrender.com/customer_addOrder"
+    const server_addOrderURL = "https://pos-03l8.onrender.com/customer_addOrder"
 
     const response = await fetch(server_addOrderURL,
         {
@@ -53,7 +53,7 @@ export default function CartView(props) {
 
     return (
         <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%' }}>
-            <NavBar navItems={navItems} cart = {props.cart} isCustomer={false} home={"/"} />
+            <NavBar navItems={navItems} cart={props.cart} isCustomer={false} home={"/"} />
             <div className="cartgrid">
                 <ul>
                     {props.cart.map((item) => { return <CartItemCard className="cartItem" item={item} cart={props.cart} setCart={props.setCart} incrementCartItem={props.incrementCartItem} decrementCartItem={props.decrementCartItem} ></CartItemCard> })}

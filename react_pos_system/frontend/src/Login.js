@@ -19,7 +19,7 @@ const navItems = [
  * @author @AakashHaran
  */
 const tryLogin = async (navigate, email, password) => {
-    const getItemsAPI = "http://https://pos-03I8.onrender.com/login";
+    const getItemsAPI = "https://pos-03l8.onrender.com/login";
     console.log("TRYING LOGIN", email, password)
 
     const test = await fetch(getItemsAPI,
