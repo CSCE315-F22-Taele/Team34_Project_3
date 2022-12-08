@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const server_addOrder = async (data, setCart) => {
     setCart([]);
     console.log(data);
-    const server_addOrderURL = "http://localhost:5001/server_addOrder"
+    const server_addOrderURL = "http://https://pos-03I8.onrender.com/server_addOrder"
 
     const response = await fetch(server_addOrderURL,
         {

@@ -9,7 +9,7 @@ import ViewIngredientsRow from "../components/manager/ViewIngredientsRow";
  * @author @ThucTran
  */
 const getIngredients = async (setIngredients) => {
-    const getIngredientsAPI = "http://localhost:5001/allingredients";
+    const getIngredientsAPI = "http://https://pos-03I8.onrender.com/allingredients";
     await fetch(getIngredientsAPI)
         .then((response) => response.json())
         .then((data) => setIngredients(data));
@@ -23,7 +23,7 @@ const getIngredients = async (setIngredients) => {
  */
 const addIngredients = async (data) => {
     console.log(data);
-    const addItemURL = "http://localhost:5001/addingredient"
+    const addItemURL = "http://https://pos-03I8.onrender.com/addingredient"
 
     const response = await fetch(addItemURL,
         {
@@ -46,7 +46,7 @@ const addIngredients = async (data) => {
  */
 const updateIngredients = async (data) => {
     console.log(data);
-    const addItemURL = "http://localhost:5001/updatestock"
+    const addItemURL = "http://https://pos-03I8.onrender.com/updatestock"
 
     const response = await fetch(addItemURL,
         {

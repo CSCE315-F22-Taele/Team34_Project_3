@@ -14,7 +14,7 @@ import { useNavigate, Link } from "react-router-dom";
 const server_addOrder = async (data, setCart) => {
     setCart([]);
     console.log(data);
-    const server_addOrderURL = "http://localhost:5001/customer_addOrder"
+    const server_addOrderURL = "http://https://pos-03I8.onrender.com/customer_addOrder"
 
     const response = await fetch(server_addOrderURL,
         {
