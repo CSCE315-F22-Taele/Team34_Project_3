@@ -33,7 +33,7 @@ export default function App() {
   };
   useEffect(() => {
     const state = localStorage.getItem("theme");
-    setTheme(state)
+    (state == null) ? (setTheme("normal")) : setTheme(state)
   }, []);
   const [cart, setCart] = useState([]);
 
