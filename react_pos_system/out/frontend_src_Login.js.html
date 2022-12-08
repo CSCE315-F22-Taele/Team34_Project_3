@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Source: frontend/src/Login.js</title>
@@ -15,18 +16,18 @@
 
 <body>
 
-<div id="main">
+    <div id="main">
 
-    <h1 class="page-title">Source: frontend/src/Login.js</h1>
-
-    
+        <h1 class="page-title">Source: frontend/src/Login.js</h1>
 
 
 
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+
+
+
+        <section>
+            <article>
+                <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
 import { GoogleOAuthProvider, useGoogleLogin, GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,7 +48,7 @@ const navItems = [
  * @author @AakashHaran
  */
 const tryLogin = async (navigate, email, password) => {
-    const getItemsAPI = "http://localhost:5001/login";
+    const getItemsAPI = "https://pos-03l8.onrender.com/login";
     console.log("TRYING LOGIN", email, password)
 
     const test = await fetch(getItemsAPI,
@@ -137,25 +138,77 @@ const Login = (props) => {
 }
 
 export default Login;</code></pre>
-        </article>
-    </section>
+            </article>
+        </section>
 
 
 
 
-</div>
+    </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="pool.html">pool</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CartItemCard">CartItemCard</a></li><li><a href="global.html#Forbidden">Forbidden</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#ManagerHome">ManagerHome</a></li><li><a href="global.html#ManagerLayout">ManagerLayout</a></li><li><a href="global.html#MenuItemCard">MenuItemCard</a></li><li><a href="global.html#MenuItems">MenuItems</a></li><li><a href="global.html#MenuNavBar">MenuNavBar</a></li><li><a href="global.html#MoreOrderItemRow">MoreOrderItemRow</a></li><li><a href="global.html#MyMap">MyMap</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#ReceiptPanel">ReceiptPanel</a></li><li><a href="global.html#ServerHome">ServerHome</a></li><li><a href="global.html#ViewEmployeeRow">ViewEmployeeRow</a></li><li><a href="global.html#ViewEmployees">ViewEmployees</a></li><li><a href="global.html#ViewIngredientRow">ViewIngredientRow</a></li><li><a href="global.html#ViewItemRow">ViewItemRow</a></li><li><a href="global.html#ViewItems">ViewItems</a></li><li><a href="global.html#ViewOrderRow">ViewOrderRow</a></li><li><a href="global.html#ViewOrders">ViewOrders</a></li><li><a href="global.html#ViewPairRow">ViewPairRow</a></li><li><a href="global.html#ViewStock">ViewStock</a></li><li><a href="global.html#addIngredients">addIngredients</a></li><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addToOrder">addToOrder</a></li><li><a href="global.html#deleteItem">deleteItem</a></li><li><a href="global.html#filter">filter</a></li><li><a href="global.html#getEmployees">getEmployees</a></li><li><a href="global.html#getIngredients">getIngredients</a></li><li><a href="global.html#getItems">getItems</a></li><li><a href="global.html#getOrders">getOrders</a></li><li><a href="global.html#getPairs">getPairs</a></li><li><a href="global.html#getTable">getTable</a></li><li><a href="global.html#logOut">logOut</a></li><li><a href="global.html#placeClockedIn">placeClockedIn</a></li><li><a href="global.html#placeLoginButton">placeLoginButton</a></li><li><a href="global.html#placePage">placePage</a></li><li><a href="global.html#server_addOrder">server_addOrder</a></li><li><a href="global.html#setItembyType">setItembyType</a></li><li><a href="global.html#tryLogin">tryLogin</a></li><li><a href="global.html#updateIngredients">updateIngredients</a></li><li><a href="global.html#validateManager">validateManager</a></li></ul>
-</nav>
+    <nav>
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Classes</h3>
+        <ul>
+            <li><a href="pool.html">pool</a></li>
+        </ul>
+        <h3>Global</h3>
+        <ul>
+            <li><a href="global.html#CartItemCard">CartItemCard</a></li>
+            <li><a href="global.html#Forbidden">Forbidden</a></li>
+            <li><a href="global.html#Home">Home</a></li>
+            <li><a href="global.html#Login">Login</a></li>
+            <li><a href="global.html#ManagerHome">ManagerHome</a></li>
+            <li><a href="global.html#ManagerLayout">ManagerLayout</a></li>
+            <li><a href="global.html#MenuItemCard">MenuItemCard</a></li>
+            <li><a href="global.html#MenuItems">MenuItems</a></li>
+            <li><a href="global.html#MenuNavBar">MenuNavBar</a></li>
+            <li><a href="global.html#MoreOrderItemRow">MoreOrderItemRow</a></li>
+            <li><a href="global.html#MyMap">MyMap</a></li>
+            <li><a href="global.html#NavBar">NavBar</a></li>
+            <li><a href="global.html#ReceiptPanel">ReceiptPanel</a></li>
+            <li><a href="global.html#ServerHome">ServerHome</a></li>
+            <li><a href="global.html#ViewEmployeeRow">ViewEmployeeRow</a></li>
+            <li><a href="global.html#ViewEmployees">ViewEmployees</a></li>
+            <li><a href="global.html#ViewIngredientRow">ViewIngredientRow</a></li>
+            <li><a href="global.html#ViewItemRow">ViewItemRow</a></li>
+            <li><a href="global.html#ViewItems">ViewItems</a></li>
+            <li><a href="global.html#ViewOrderRow">ViewOrderRow</a></li>
+            <li><a href="global.html#ViewOrders">ViewOrders</a></li>
+            <li><a href="global.html#ViewPairRow">ViewPairRow</a></li>
+            <li><a href="global.html#ViewStock">ViewStock</a></li>
+            <li><a href="global.html#addIngredients">addIngredients</a></li>
+            <li><a href="global.html#addItem">addItem</a></li>
+            <li><a href="global.html#addToOrder">addToOrder</a></li>
+            <li><a href="global.html#deleteItem">deleteItem</a></li>
+            <li><a href="global.html#filter">filter</a></li>
+            <li><a href="global.html#getEmployees">getEmployees</a></li>
+            <li><a href="global.html#getIngredients">getIngredients</a></li>
+            <li><a href="global.html#getItems">getItems</a></li>
+            <li><a href="global.html#getOrders">getOrders</a></li>
+            <li><a href="global.html#getPairs">getPairs</a></li>
+            <li><a href="global.html#getTable">getTable</a></li>
+            <li><a href="global.html#logOut">logOut</a></li>
+            <li><a href="global.html#placeClockedIn">placeClockedIn</a></li>
+            <li><a href="global.html#placeLoginButton">placeLoginButton</a></li>
+            <li><a href="global.html#placePage">placePage</a></li>
+            <li><a href="global.html#server_addOrder">server_addOrder</a></li>
+            <li><a href="global.html#setItembyType">setItembyType</a></li>
+            <li><a href="global.html#tryLogin">tryLogin</a></li>
+            <li><a href="global.html#updateIngredients">updateIngredients</a></li>
+            <li><a href="global.html#validateManager">validateManager</a></li>
+        </ul>
+    </nav>
 
-<br class="clear">
+    <br class="clear">
 
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 22:34:25 GMT-0600 (Central Standard Time)
-</footer>
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 22:34:25
+        GMT-0600 (Central Standard Time)
+    </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+    <script> prettyPrint(); </script>
+    <script src="scripts/linenumber.js"> </script>
 </body>
+
 </html>
