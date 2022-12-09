@@ -73,8 +73,8 @@ const ViewOrders = () => {
                         <input type="text" class="form-control" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="Max Price: '#.##'" aria-label="Dollar amount (with dot and two decimal places)" />
                     </div>
                     <div className="col-3">
-                        <input type="text" class="form-control" value={minDate} onChange={(e) => setMinDate(e.target.value)} placeholder="Min Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
-                        <input type="text" class="form-control" value={maxDate} onChange={(e) => setMaxDate(e.target.value)} placeholder="Max Date: 'MM-DD-YYYY'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        <input type="text" class="form-control" value={minDate} onChange={(e) => setMinDate(e.target.value)} placeholder="Min Date: 'YYYY-MM-DD'" aria-label="Dollar amount (with dot and two decimal places)" />
+                        <input type="text" class="form-control" value={maxDate} onChange={(e) => setMaxDate(e.target.value)} placeholder="Max Date: 'YYYY-MM-DD'" aria-label="Dollar amount (with dot and two decimal places)" />
                     </div>
                     <div className="col-3">
                         <input type="text" class="form-control" value={empId} onChange={(e) => setEmpId(e.target.value)} placeholder="Employee ID" aria-label="Dollar amount (with dot and two decimal places)" />

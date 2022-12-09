@@ -133,8 +133,10 @@ app.get("/test", async (req, res) => {
  * @param {Object} req - request from client
  * * @param {Object} res - response object from server
  */
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
+app.get("/login", async (req, res) => {
+    // const { email, password } = req.body;
+    const email = req.query.email;
+    const password = req.query.password;
 
     console.log(email, password)
 
