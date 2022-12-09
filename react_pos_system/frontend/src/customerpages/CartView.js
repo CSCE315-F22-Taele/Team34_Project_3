@@ -62,7 +62,7 @@ export default function CartView(props) {
 
             {props.cart.length === 0 && (
                 <>
-                    <h1 className="EmptyCart" style={{ fontSize: '65px', fontFamily: 'serif', color: 'black' }}> Your Cart Is Empty!  </h1>
+                    <h1 className="EmptyCart" style={{ fontSize: '65px', fontFamily: 'serif', color: 'black' }}>Your Cart Is Empty!</h1>
                     <div><img className={"empcart"} src={empcart} /></div>
 
                     <Link to="/menu">
