@@ -1,5 +1,5 @@
 import NavBar from '../components/universal/NavBar';
-// import Map from '../components/universal/mapUI'
+import Map from '../components/universal/mapUI'
 import React from 'react'
 const navItems = [
   { navItemName: "Home", route: "/" },
@@ -18,7 +18,7 @@ export default function FindPage(props) {
     <div>
       <NavBar navItems={navItems} cart = {props.cart} isCustomer={false} home={"/"} />
       <h1>Find Nearest Location</h1>
-      {/* <Map></Map> */}
+      <Map></Map>
     </div>
   );
 };
