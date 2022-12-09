@@ -21,15 +21,22 @@ function logOut() {
  * @function
  * @author @AakashHaran
  */
-function placeLoginButton(navigate, isLogged) {
+// function placeLoginButton(navigate, isLogged) {
+//     if (!isLogged)
+//         return <button className={"elem accessibility"} onClick={() => navigate("/login")}>Login</button>
+//     else
+//         return <button className={"elem accessibility"} onClick={() => {
+//             logOut();
+//             navigate("/")
+//         }
+//         }>Logout</button>
+// }
+
+function placeLoginButton(isLogged) {
     if (!isLogged)
-        return <button className={"elem accessibility"} onClick={() => navigate("/login")}>Login</button>
+        return <a href="/login" className={"elem accessibility"}>Login</a>
     else
-        return <button className={"elem accessibility"} onClick={() => {
-            logOut();
-            navigate("/")
-        }
-        }>Logout</button>
+        return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
 }
 
 /**
@@ -41,7 +48,7 @@ function placeLoginButton(navigate, isLogged) {
 const NavBar = (props) => {
     const navigate = useNavigate();
     function placeCart() {
-        if (sessionStorage.getItem("role") === "logged_out")
+        if (sessionStorage.getItem("role") === "logged_out" || sessionStorage.getItem("role") === null)
             return <button className={"elem accessibility"} onClick={() => navigate("/cart")}><i class="fa-solid fa-cart-shopping fa-2xl"></i>{props.cart.length}</button>
     }
 
@@ -61,7 +68,8 @@ const NavBar = (props) => {
                 return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(!isLogged)}
-            {placeLoginButton(navigate, isLogged)}
+            {/* {placeLoginButton(navigate, isLogged)} */}
+            {placeLoginButton(isLogged)}
             { }
             {/* <button className={"elem accessibility"} onClick={toggleTheme}>Color</button> */}
         </div>
