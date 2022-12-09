@@ -21,11 +21,15 @@ function logOut() {
  * @function
  * @author @AakashHaran
  */
-function placeLoginButton(isLogged) {
+function placeLoginButton(navigate, isLogged) {
     if (!isLogged)
-        return <a href="/login" className={"elem accessibility"}>Login</a>
+        return <button className={"elem accessibility"} onClick={() => navigate("/login")}>Login</button>
     else
-        return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
+        return <button className={"elem accessibility"} onClick={() => {
+            logOut();
+            navigate("/")
+        }
+        }>Logout</button>
 }
 
 /**
@@ -57,7 +61,7 @@ const NavBar = (props) => {
                 return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(!isLogged)}
-            {placeLoginButton(isLogged)}
+            {placeLoginButton(navigate, isLogged)}
             { }
             {/* <button className={"elem accessibility"} onClick={toggleTheme}>Color</button> */}
         </div>
