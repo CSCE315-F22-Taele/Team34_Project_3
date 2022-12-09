@@ -47,7 +47,7 @@ const navItems = [
 // }
 
 const tryLogin = async (navigate, email, password) => {
-    const loginAPI = `http://localhost:5001/login/?email=${email}&password=${password}`;
+    const loginAPI = `https://pos-03l8.onrender.com/login/?email=${email}&password=${password}`;
 
     await fetch(loginAPI)
         .then((response) => response.json())
