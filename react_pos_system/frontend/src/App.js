@@ -3,7 +3,7 @@
 import cfaHomeSand from './assets/cfaHomeSand.png';
 import cfaHomeCoke from './assets/cfaHomeCoke.png';
 import NavBar from './components/universal/NavBar'
-import './styles/homepage.css';
+import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import MenuView from './customerpages/MenuView';
@@ -21,11 +21,11 @@ export default function App() {
   const [theme, setTheme] = useState("normal");
   const toggleTheme = () => {
     setTheme((curr) => {
-      if (curr === "normal"){
+      if (curr === "normal") {
         localStorage.setItem("theme", "blind")
         return "blind"
       }
-      else{
+      else {
         localStorage.setItem("theme", "normal")
         return "normal"
       }
@@ -97,8 +97,7 @@ export default function App() {
   }
   var translateAdded = false;
   const googleTranslateElementInit = () => {
-    if (!translateAdded)
-    {
+    if (!translateAdded) {
       translateAdded = true
       new window.google.translate.TranslateElement({
         pageLanguage: "en",
@@ -118,23 +117,22 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
-      <div id = "google_translate_element"/>
-      <button className={"elem accessibility"} onClick={() => toggleTheme()}>Color</button>
+        <div id="google_translate_element" />
         <BrowserRouter>
-        
+
           <Routes>
-            <Route path="/" element={<Home cart = {cart}/>}></Route>
-            <Route path="/menu" element={<MenuView cart={cart} addToCart={addToCart} setCart={setCart} />}></Route>
-            <Route path="/login" element={<Login cart = {cart}/>}></Route>
-            <Route path="/server" element={<ServerHome />}></Route>
-            <Route path="/cart" element={<CartView cart={cart} setCart={setCart} incrementCartItem={incrementCartItem} decrementCartItem={decrementCartItem} sendOrder={sendOrder} />}></Route>
-            <Route path="/manager" element={<ManagerLayout />}></Route>
-            <Route path="/forbidden" element={<Forbidden />}></Route>
-            <Route path="/items" element={<ManagerLayout />}></Route>
-            <Route path="/ingredients" element={<ManagerLayout />}></Route>
-            <Route path="/employees" element={<ManagerLayout />}></Route>
-            <Route path="/orders" element={<ManagerLayout />}></Route>
-            <Route path="/find" element={<FindView cart = {cart}/>}></Route>
+            <Route path="/" element={<Home cart={cart} toggleTheme={toggleTheme} />}></Route>
+            <Route path="/menu" element={<MenuView cart={cart} addToCart={addToCart} toggleTheme={toggleTheme} setCart={setCart} />}></Route>
+            <Route path="/login" element={<Login toggleTheme={toggleTheme} cart={cart} />}></Route>
+            <Route path="/server" element={<ServerHome toggleTheme={toggleTheme} />}></Route>
+            <Route path="/cart" element={<CartView toggleTheme={toggleTheme} cart={cart} setCart={setCart} incrementCartItem={incrementCartItem} decrementCartItem={decrementCartItem} sendOrder={sendOrder} />}></Route>
+            <Route path="/manager" element={<ManagerLayout toggleTheme={toggleTheme} />}></Route>
+            <Route path="/forbidden" element={<Forbidden toggleTheme={toggleTheme} />}></Route>
+            <Route path="/items" element={<ManagerLayout toggleTheme={toggleTheme} />}></Route>
+            <Route path="/ingredients" element={<ManagerLayout toggleTheme={toggleTheme}/>}></Route>
+            <Route path="/employees" element={<ManagerLayout toggleTheme={toggleTheme}/>}></Route>
+            <Route path="/orders" element={<ManagerLayout toggleTheme={toggleTheme}/>}></Route>
+            <Route path="/find" element={<FindView toggleTheme={toggleTheme} cart={cart} />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

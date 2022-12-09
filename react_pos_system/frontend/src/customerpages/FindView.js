@@ -16,7 +16,7 @@ const navItems = [
 export default function FindPage(props) {
   return (
     <div>
-      <NavBar navItems={navItems} cart = {props.cart} isCustomer={false} home={"/"} />
+      <NavBar navItems={navItems} toggleTheme={props.toggleTheme}  cart = {props.cart} isCustomer={false} home={"/"} />
       <h1>Find Nearest Location</h1>
       <Map></Map>
     </div>

@@ -31,7 +31,7 @@ export default function MenuView(props) {
 
     return (
         <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%' }}>
-            <NavBar navItems={navItems} isCustomer={false} cart = {props.cart} home={"/"} />
+            <NavBar navItems={navItems} toggleTheme={props.toggleTheme} isCustomer={false} cart = {props.cart} home={"/"} />
             <MenuNavBar menuNavBar allitems={allitems} myitems={myitems} setItems={setItems} ></MenuNavBar>
 
             <div className={"gridcontainer"}>

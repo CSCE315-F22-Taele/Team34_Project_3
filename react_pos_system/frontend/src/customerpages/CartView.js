@@ -53,7 +53,7 @@ export default function CartView(props) {
 
     return (
         <div style={{ overflow: 'hidden', height: 'fit-content', paddingBottom: '10%' }}>
-            <NavBar navItems={navItems} cart={props.cart} isCustomer={false} home={"/"} />
+            <NavBar navItems={navItems} toggleTheme={props.toggleTheme} cart={props.cart} isCustomer={false} home={"/"} />
             <div className="cartgrid">
                 <ul>
                     {props.cart.map((item) => { return <CartItemCard className="cartItem" item={item} cart={props.cart} setCart={props.setCart} incrementCartItem={props.incrementCartItem} decrementCartItem={props.decrementCartItem} ></CartItemCard> })}
@@ -79,8 +79,10 @@ export default function CartView(props) {
                         <div style={{ fontFamily: 'serif', color: 'black' }}>Total: ${TotalPrice.toFixed(2)}</div>
                     </div>
                     {/* <button onClick = {() => props.sendOrder(props.cart, props.setCart, TotalPrice)} className = "Send_Order"> Place Order</button> */}
-                    <input type="Name " value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="Customer Name" ></input>
-                    <button onClick={() => server_addOrder({ items: props.cart, totalPrice: Number((TotalPrice).toFixed(2)), customerName: { customerName }, employeeName: "0000000" }, props.setCart)} className="Send_Order"> Place Order</button>
+                    <div className='container'>
+                        <input className='input-group' type="Name " value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="Customer Name" ></input>
+                        <button onClick={() => server_addOrder({ items: props.cart, totalPrice: Number((TotalPrice).toFixed(2)), customerName: { customerName }, employeeName: "0000000" }, props.setCart)} className="Send_Order"> Place Order</button>
+                    </div>
                 </>
 
             )}

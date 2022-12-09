@@ -55,16 +55,16 @@ const ReceiptPanel = ({ cart, setCart, setSubPrice, subPrice, setTotalPrice, tot
     return (
         <>
             <div style={{ display: "grid", gridTemplateColumns: "auto" }}>
-                <button onClick={() => setCart([])}>Clear</button>
+                <button className="btn btn-primary btn-lg" style={{backgroundColor: '#e60e33'}} onClick={() => setCart([])}>Clear</button>
                 <div className="row" style={{ marginTop: '15px' }}>
                     <div className="col"><h5>Order Item</h5></div>
                 </div>
                 {cart.map(cartItem => {
                     return (
-                        <div className="row">
+                        <div className="row" style={{ marginTop: '15px'}}>
                             <div className="col">{cartItem.item.item_name}</div>
                             <div className="col">{cartItem.quantity}</div>
-                            <div className="col"><button onClick={() => deleteItem(setCart, cartItem.item.item_id)}>Delete</button></div>
+                            <div className="col"><button className="btn btn-primary" style={{ backgroundColor: '#e60e33', color: 'white' }} onClick={() => deleteItem(setCart, cartItem.item.item_id)}>Delete</button></div>
                         </div>
                     )
                 })}
@@ -76,7 +76,12 @@ const ReceiptPanel = ({ cart, setCart, setSubPrice, subPrice, setTotalPrice, tot
                 <input type="tfext" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="Customer Name" ></input>
                 {/* <button onClick={() => setCart([])}>Place Order</button> */}
 
-                <button onClick={() => server_addOrder({ items: cart, totalPrice: Number((totalPrice).toFixed(2)), customerName: { customerName }, employeeName: { employeeName } }, setCart)} className=""> Place Order</button>
+                <button className="btn btn-primary btn-lg" style={{ backgroundColor: '#e60e33', color: 'white', marginTop: '50px' }} onClick={() => {
+                    server_addOrder({ items: cart, totalPrice: Number((totalPrice).toFixed(2)), customerName: { customerName }, employeeName: { employeeName } }, setCart)
+                    setCustomerName("")
+                    setEmployeeName("")
+                }
+                }> Place Order</button>
 
             </div>
         </>

@@ -10,7 +10,7 @@ import MenuItems from "../components/server/MenuItems";
  * @function
  * @author @AakashHaran
  */
-const ServerHome = () => {
+const ServerHome = (props) => {
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
     const [subTotal, setSubPrice] = useState(0);
@@ -25,7 +25,7 @@ const ServerHome = () => {
 
     return (
         <>
-            <NavBar navItems={[]} />
+            <NavBar toggleTheme={props.toggleTheme} navItems={[]} />
             <div className="row" style={{ marginTop: '15px', marginRight: '15px', marginLeft: '15px' }}>
                 <div className="col-8">
                     <MenuItems cart={cart} setCart={setCart} />

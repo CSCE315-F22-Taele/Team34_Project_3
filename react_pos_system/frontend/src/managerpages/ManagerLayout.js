@@ -20,19 +20,19 @@ const navItems = [
  * @function
  * @author @AakashHaran
  */
-function placePage() {
+function placePage(toggleTheme) {
     const path = window.location.pathname;
     switch (path) {
         case "/manager":
-            return <ManagerHome />
+            return <ManagerHome  />
         case "/items":
-            return <ViewItems />
+            return <ViewItems/>
         case "/ingredients":
-            return <ViewIngredients />
+            return <ViewIngredients/>
         case "/employees":
-            return <ViewEmployees />
+            return <ViewEmployees/>
         case "/orders":
-            return <ViewOrders />
+            return <ViewOrders/>
     }
 }
 
@@ -54,7 +54,7 @@ const validateManager = (navigate) => {
  * @function
  * @author @AakashHaran
  */
-const ManagerLayout = () => {
+const ManagerLayout = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const ManagerLayout = () => {
 
     return (
         <>
-            <NavBar navItems={navItems} home={"/manager"} />
+            <NavBar toggleTheme={props.toggleTheme} navItems={navItems} home={"/manager"} />
             {placePage()}
         </>
     );

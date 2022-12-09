@@ -21,23 +21,22 @@ function logOut() {
  * @function
  * @author @AakashHaran
  */
-// function placeLoginButton(navigate, isLogged) {
-//     if (!isLogged)
-//         return <button className={"elem accessibility"} onClick={() => navigate("/login")}>Login</button>
-//     else
-//         return <button className={"elem accessibility"} onClick={() => {
-//             logOut();
-//             navigate("/")
-//         }
-//         }>Logout</button>
-// }
-
-function placeLoginButton(isLogged) {
+function placeLoginButton(navigate, isLogged) {
     if (!isLogged)
-        return <a href="/login" className={"elem accessibility"}>Login</a>
+        return <button className={"elem accessibility"} onClick={() => navigate("/login")}>Login</button>
     else
-        return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
+        return <button className={"elem accessibility"} onClick={() => {
+            sessionStorage.setItem("role", "logged_out")
+            logOut()
+        }}><a href="/">Logout</a></button>
 }
+
+// function placeLoginButton(isLogged) {
+//     if (!isLogged)
+//         return <a href="/login" className={"elem accessibility"}>Login</a>
+//     else
+//         return <button className={"elem accessibility"} onClick={() => logOut()}><a href="/">Logout</a></button>
+// }
 
 /**
  * react component for the universal navbar
@@ -68,10 +67,10 @@ const NavBar = (props) => {
                 return <Link className={"elem"} replace to={navItem.route}>{navItem.navItemName}</Link>
             })}
             {placeCart(!isLogged)}
-            {/* {placeLoginButton(navigate, isLogged)} */}
-            {placeLoginButton(isLogged)}
+            {placeLoginButton(navigate, isLogged)}
+            {/* {placeLoginButton(isLogged)} */}
             { }
-            {/* <button className={"elem accessibility"} onClick={toggleTheme}>Color</button> */}
+            <button className={"elem accessibility"} onClick={() => props.toggleTheme()}>Color</button>
         </div>
     );
 };
