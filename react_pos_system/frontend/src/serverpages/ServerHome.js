@@ -25,7 +25,7 @@ const ServerHome = (props) => {
 
     return (
         <>
-            <NavBar toggleTheme={props.toggleTheme} navItems={[]} />
+            <NavBar cart={[]} toggleTheme={props.toggleTheme} navItems={[]} />
             <div className="row" style={{ marginTop: '15px', marginRight: '15px', marginLeft: '15px' }}>
                 <div className="col-8">
                     <MenuItems cart={cart} setCart={setCart} />

@@ -64,7 +64,7 @@ const ManagerLayout = (props) => {
 
     return (
         <>
-            <NavBar toggleTheme={props.toggleTheme} navItems={navItems} home={"/manager"} />
+            <NavBar toggleTheme={props.toggleTheme} navItems={navItems} cart={[]} home={"/manager"} />
             {placePage()}
         </>
     );

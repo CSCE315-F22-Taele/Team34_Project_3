@@ -5,10 +5,15 @@ import NavBar from "./components/universal/NavBar";
  * @function
  * @author @AakashHaran
  */
+
+ const navItems = [
+    { navItemName: "Home", route: "/" }
+];
+
 const Forbidden = () => {
     return (
         <>
-            <NavBar navItems={[]} home={"/"} />
+            <NavBar navItems={navItems} cart={[]} home={"/"} />
             <div style={{
                 position: "absolute",
                 top: "50%",
